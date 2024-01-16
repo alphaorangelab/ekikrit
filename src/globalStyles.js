@@ -2,20 +2,28 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  /* Set a base font size using rem units */
-  html {
-    font-size: 16px;
-  }
 
-  body {
-    /* Set default font size and other global styles using rem units */
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
-    line-height: 1.5;
-  }
+
+  /* Set a base font size using rem units */
 
   /* Add more global styles as needed */
+  ${
+      "" /* .ant-layout .ant-layout-sider {
+	background:#027d34;
+  } */
+  }
+  .ant-popover-inner {
+	padding: 0 !important
+  }
+  ${
+      "" /* .ant-menu-light .ant-menu-item-selected{
+	background: #272727 !important;
+  }
+  .ant-menu-light .ant-menu-item:not(.ant-menu-item-disabled):focus-visible {
+		outline: none !important;
+  } */
+  }
+  
 `;
 
 export default GlobalStyle;
