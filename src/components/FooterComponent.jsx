@@ -1,4 +1,3 @@
-import GoogleMapComponent from "./Map";
 import { FiPhoneCall } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
 import { IoLocation } from "react-icons/io5";
@@ -57,7 +56,6 @@ const FooterComponent = () => {
                             रत्ननगर-१६, हात्तीगाडे{" "}
                         </li>
                     </ul>
-                    {/* <GoogleMapComponent /> */}
                 </div>
             </div>
             <div className="footer-copyright">
