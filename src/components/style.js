@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const StyledNavbarMarquee = styled.div`
-    background: #027d33;
-    color: #ffffff;
+    background: #ffffff;
+    color: #027d33;
     display: flex;
     align-items: center;
     height: 40px;
@@ -19,7 +19,7 @@ export const StyledNavbarMarquee = styled.div`
         white-space: nowrap;
         overflow: hidden;
         position: relative;
-        width: 50%;
+        width: 100%;
     }
 
     .marquee-content {
@@ -64,27 +64,35 @@ export const StyledFooterComponent = styled.div`
     flex-direction: column;
     justify-content: space-between;
     background: #027d33;
-    height: 350px;
     color: #ffffff;
 
     .footer-container {
         display: flex;
-        justify-content: space-around;
-        padding: 20px 40px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px;
+
+        @media (min-width: 768px) {
+            padding: 20px 300px;
+        }
     }
 
     .footer-copyright {
-        background: #025925;
+        background: #ffffff;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 10px 0;
+        color: #666666;
     }
 
     .footer-container .our-services {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
+        width: 100%;
+        margin-bottom: 20px;
+
+        @media (min-width: 768px) {
+            width: calc(25% - 20px);
+        }
 
         h4 {
             text-decoration: underline;
@@ -104,5 +112,60 @@ export const StyledFooterComponent = styled.div`
         display: flex;
         align-items: center;
         gap: 3px;
+    }
+`;
+
+export const PlusButton = styled.button`
+    border-radius: 50%;
+    background: #027d34;
+    box-shadow: 2px 2px 3px #999999;
+    color: white;
+    font-size: 20px;
+    right: ${(props) => props.positionRight || "40px"};
+    bottom: ${(props) => props.positionBottom || "30px"};
+    width: 50px;
+    height: 50px;
+    border: 0;
+    outline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: ${(props) => props.position || "fixed"};
+
+    :focus {
+        outline: none;
+    }
+`;
+
+export const StyledDescription = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        ${"" /* text-align: center; */}
+        margin-bottom: 20px;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .description {
+        width: 100%;
+        text-align: justify;
+        margin-bottom: 20px;
+
+        @media (min-width: 768px) {
+            width: 60%; /* Adjust the width based on your preference */
+        }
+    }
+
+    .logo-container {
+        flex-shrink: 0; /* Prevent the logo from shrinking */
+        margin-top: 20px; /* Add some spacing */
     }
 `;

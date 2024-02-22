@@ -1,75 +1,102 @@
-import { Card } from "antd";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Card, Empty, Spin } from "antd";
 import { StyledCardContainer } from "./style";
 import NavbarMarquee from "../components/NavbarMarquee";
 import Navbar from "../components/Nabvar";
 import FooterComponent from "../components/FooterComponent";
+import NavbarComponent from "../components/Nabvar/Navbar";
 
 const { Meta } = Card;
 
-export const list = [
-    {
-        key: 1,
-        imageUrl: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-        title: "Hello world",
-        description: "Hello world 1",
-    },
-    {
-        key: 2,
-        imageUrl: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-        title: "Hello world",
-        description: "Hello world 2",
-    },
-    {
-        key: 3,
-        imageUrl: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-        title: "Hello world",
-        description: "Hello world 3",
-    },
-    {
-        key: 4,
-        imageUrl: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-        title: "Hello world",
-        description: "Hello world 4",
-    },
-    {
-        key: 5,
-        imageUrl: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-        title: "Hello world",
-        description: "Hello world 4",
-    },
-    {
-        key: 6,
-        imageUrl: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-        title: "Hello world",
-        description: "Hello world 4",
-    },
-    // {
-    //     key: 7,
-    //     image: "",
-    //     description: "Hello world 4",
-    // },
-];
-
 const Gallery = () => {
+    const [galleryList, setGalleryList] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+    useEffect(() => {
+        setLoading(true);
+        fetch("http://localhost:3000/gallery", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                // Process the newly created user data
+                setGalleryList(data?.galleryList);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                setLoading(false);
+            });
+    }, []);
     return (
         <>
-            <NavbarMarquee />
-            <Navbar />
-            <StyledCardContainer>
-                {list.map((single) => (
-                    <Card
-                        hoverable
-                        style={{ width: 240 }}
-                        key={single?.key}
-                        cover={<img alt="example" src={single?.imageUrl} />}
-                    >
-                        <Meta
-                            title={single?.title}
-                            description={single?.description}
-                        />
-                    </Card>
-                ))}
-            </StyledCardContainer>
+            {/* <NavbarMarquee /> */}
+            <NavbarComponent />
+            {loading ? (
+                <Spin
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "50%",
+                    }}
+                />
+            ) : galleryList && galleryList?.length > 0 ? (
+                <StyledCardContainer>
+                    {galleryList.map((single) => (
+                        <Card
+                            hoverable
+                            style={{
+                                width: 300,
+                                border: "2px solid #f0f0f0",
+                            }}
+                            key={single?._id}
+                            cover={
+                                <img
+                                    alt="example"
+                                    src={single?.imageList[0].imageUrl}
+                                    height={240}
+                                    style={{ objectFit: "contain" }}
+                                />
+                            }
+                            onClick={() => navigate(`${single?._id}`)}
+                        >
+                            <Meta
+                                title={
+                                    <div className="truncate">
+                                        {single?.title}
+                                    </div>
+                                }
+                                description={
+                                    <div className="truncate">
+                                        {single?.description}
+                                    </div>
+                                }
+                            />
+                        </Card>
+                    ))}
+                </StyledCardContainer>
+            ) : (
+                <Empty
+                    imageStyle={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "50vh",
+                    }}
+                >
+                    <div></div>
+                </Empty>
+            )}
             <FooterComponent />
         </>
     );

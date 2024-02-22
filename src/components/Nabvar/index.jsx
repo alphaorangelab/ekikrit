@@ -60,7 +60,13 @@ function Navbar(props) {
                 </div>
 
                 <div>
-                    <StyledButton key={1} isActive={location?.pathname === "/"}>
+                    <StyledButton
+                        key={1}
+                        isActive={
+                            location?.pathname === "/" ||
+                            location?.pathname === "/home"
+                        }
+                    >
                         <Link to={"/"}>Home</Link>
                     </StyledButton>
 

@@ -13,8 +13,12 @@ const FooterComponent = () => {
                 <div className="our-services">
                     <h4>Our Services</h4>
                     <ul>
-                        <li>Savings Account</li>
-                        <li>Loans</li>
+                        <li>
+                            <Link to={"/loan-service"}>Loan Service</Link>{" "}
+                        </li>
+                        <li>
+                            <Link to={"/deposit-service"}>Deposit Service</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="our-services">
@@ -24,11 +28,9 @@ const FooterComponent = () => {
                             <Link to={"/home"}>Home</Link>
                         </li>
                         <li>
-                            <Link to={"/abouus"}>About Us</Link>
+                            <Link to={"/about-ekikrit"}>About Us</Link>
                         </li>
-                        <li>
-                            <Link to={"/news"}>News</Link>
-                        </li>
+
                         <li>
                             <Link to={"/gallery"}>Gallery</Link>
                         </li>

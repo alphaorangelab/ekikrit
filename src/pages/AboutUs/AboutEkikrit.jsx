@@ -3,85 +3,52 @@ import { StyledAboutEkikrit } from "./style";
 import NavbarMarquee from "../../components/NavbarMarquee";
 import Navbar from "../../components/Nabvar";
 import FooterComponent from "../../components/FooterComponent";
+import NavbarComponent from "../../components/Nabvar/Navbar";
 
 const AboutEkikrit = () => {
     return (
         <>
-            <NavbarMarquee />
-            <Navbar />
+            <NavbarComponent />
             <StyledAboutEkikrit>
-                <h2>About Ekikrit</h2>
+                <h2>Introduction</h2>
                 <p>
-                    Kumari Saving & Credit Co-Operative Ltd. (KUSCCOOP) is an
-                    urban community based single-purposed Saving & Credit
-                    Co-Operative Ltd. which is successfully operating since
-                    Jestha 20, 2057 B.S. (June 2nd, 2000). Head Quarter (Head
-                    Office) at Kathmandu Metropolitan city, wards no 7, Kumari
-                    Chowk, Mitrapark, Chabahil, Kathmandu, Nepal. Our objective
-                    is to provide sound, safe, secured, and sustainable
-                    Co-Operative Banking and Non Banking Services to our members
-                    hailing from the urban-middle class, middle class and low
-                    class including deprived sections of the community for their
-                    common economic, social and cultural development through
-                    microfinance, other banking and non banking services
-                    (including social responsibilities) in our community by
-                    simple banking procedures through our Six Member Service
-                    Centers (Branches) including Head Office: Head Office at
-                    Kumari Co-Operative Building, Kumari Chowk, Mitrapark,
-                    Chabahil, Kathmandu, Nepal & Member Service
-                    Centres(Branches) at Manang Plaza - Thamel, KTM, Mahalaxmi
-                    Plaza - Kalimati, KTM, Machhapokhari - Balaju, KTM, Shankhu
-                    and Koteshwor Chowk, Koteshwor, KTM all located around
-                    Kathmandu district. We follow the norms, values, and
-                    principles of the International Co-Operative Movements and
-                    we are working under the Co-Operatives Act rules, regulation
-                    of Government of Nepal Ministry of Land Management,
-                    Cooperatives and Poverty Alleviation and Co-Operative
-                    department of Nepal. KUSCCOOP is registered under the
-                    Co-Operative Act 2048 B.S.(1991 A.D.) in the department of
-                    Co-Operative, Kathmandu, Nepal and our registered number is
-                    617 and PAN Number 301943457. Currently, we are guided by 5
-                    years strategic plan, policies, guidelines, and
-                    organization’s approved annual budget. Having provided long
-                    years of extensive service to our members, KUSCCOOP has been
-                    upgrading sound, safe, secured, and a sustainable
-                    Co-Operative in Kathmandu, Nepal. Our Co-Operative was
-                    established years of 2000 A.D. with 25 founder members and a
-                    capital of 25 Lakh (2.5 Million) and at present, we are more
-                    than 7,600 members where 60% male and 40% are females. Now
-                    KUSCCOOP has achieved the total assets more than 1 Arab 75
-                    crore (1 Billion 750 Million) Nepalese Rupees. Our future
-                    plan will be to achieve 16,425 members and 3 Arab 25 Crore
-                    (3 Billion and 250 Million) total asset by the year of 2082
-                    B.S. (2024 A.D.). KUSCCOOP has build the 8.5 storied Kumari
-                    Co-Operative Building (Kumari Building) for its Headquarter
-                    (Head Office) at Kathmandu Metropolitan city, Wards no 7,
-                    Kumari Chowk, Mitrapark, Chabahil, Kathmandu, Nepal and
-                    operating its office here from Asoj 4, 2069 B.S. (September
-                    20, 2012 A.D.). Managed by experienced, dedicated, and
-                    visionary Board of Directors, Management, Sub-Committees,
-                    Account Supervisory Committee, and experienced SMART,
-                    dedicated and qualified employees. Organization has achieved
-                    continuous growth in services, transactions, total assets,
-                    share capitals, and members. We are using the latest modern
-                    banking software (Micro Banker), other digital technologies;
-                    SMART Banking Service (Mobile Banking Service, SMS Service,
-                    ATM Card Service, Remittance Service) and Online Bill
-                    payment service. In upcoming days, we will provide internet
-                    banking service soon to our members as per their needs and
-                    choice. And also, we are always attentive towards our social
-                    responsibilities (non-banking service) in our community.
-                    KUSCCOOP will assure sound, safe, secured, and sustainable
-                    saving & credit co-operative banking service to our members
-                    and safety to their hard-earned money. We provide a
-                    competitive interest rate in saving & credit services on the
-                    basis of fair market competition. KUSCCOOP’s Board of
-                    Directors, Account supervisory committees members,
-                    Sub-committees member, Management Team and its staff are all
-                    honest and well experienced individuals in financial and
-                    co-operative sectors.
+                    एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडको परिचय एकीकृत
+                    कृषक बचत तथा ऋण सहकारी संघ लिमिटेडमा स्वागत छ। हाम्रो सहकारी
+                    रत्ननगर, चितवन, नेपालमा स्थित छ र हाम्रो मुख्य उद्देश्य
+                    सवारीको अर्थात् मानसिक, सुरक्षित र स्थायी बैंकिंग र
+                    गैर-बैंकिंग सेवाहरू प्रदान गर्नु हो। हाम्रो सामुदायिक
+                    विकासका लागि माइक्रोफाइनान्स र अन्य सेवाहरूको माध्यमबाट
+                    सदस्यहरूको संयुक्त विकासको लागि हो। हाम्रो संगठन
+                    अन्तर्राष्ट्रिय सहकारी आन्दोलनका मान्यता, मूल्यहरू र
+                    सिद्धान्तहरूको पालना गर्दछ र नेपाल सरकारको सहकारी अधिनियमका
+                    नियम, तत्त्व र विधि–विधानलाई पक्षपाती रूपमा अनुसरण गर्दछ।
+                    एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडलाई पंजीकरण नम्बर
+                    ९७८/०६८/०६९ को सहकारी अधिनियम अन्तर्गत पंजीकृत गरिएको छ।
+                    हाम्रो संगठन रत्ननगर, चितवनको मात्रै मुख्य कार्यालयबाट
+                    संचालन गरिएको छ, जुन एकाग्रता र दक्षताको लागि तयार छ। एकीकृत
+                    कृषक बचत तथा ऋण सहकारी संघ लिमिटेडमा सदस्यहरूको विविध
+                    जनश्रेणीका ४८७ जनाको पूर्ण संख्या छ। हाम्रो संगठन ११
+                    कर्मचारीहरूद्वारा व्यवस्थित गरिएको छ, जसमा ७ पुरुष र ४ महिला
+                    हुन्छन्, जुन सदस्यहरूलाई उत्कृष्टता साथै परिषेबद्धतामा सेवा
+                    गर्ने कर्मचारीहरूसँग गर्दछ। हाम्रो प्रतिष्ठित सीईओ, श्री
+                    विष्णु प्रसाद आर्यालको नेतृत्वमा हाम्रो संगठन अनुभवी,
+                    समर्पित र दृष्टिबद्ध प्रबन्धन बोर्ड, प्रबन्धन, उप–समितिहरू,
+                    लेखा पर्यवेक्षण समिति र योग्य कर्मचारीहरूद्वारा चलाइएको छ।
+                    निरंतर सुधार र नवाइकरणको लागि हाम्रो संघ इन्टरनेट बैंकिङ
+                    सेवाहरू भविष्यमा ल्याउने योजना गरेको छ। तपाईंको सुविधा र
+                    सहजताका लागि, हाम्रो कार्यालयको समय शनिवारबाट शुक्रवारसम्म
+                    १०:०० बजे बाट ५:०० बजेसम्म र, शुक्रवारमा १०:०० बजे बाट ३:००
+                    बजेसम्म हुन्छ। कुनै प्रश्न वा सहायता आवश्यक भएमा कृपया
+                    हामीलाई ९७४५३५६३१० नम्बरमा सम्पर्क गर्नुहोस् वा इमेलमा
+                    ekikritkrishakekikritkrishak@gmail.com मा सम्पर्क गर्नुहोस्।
+                    एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडलाई तपाईंको आर्थिक
+                    साथीको रूपमा छनोट गर्नुको लागि धन्यवाद। हामी तपाईंलाई सेवा
+                    गर्न र तपाईंको आर्थिक कल्याण र समुदाय विकासमा सहयोग गर्न
+                    तत्पर छौं।
                 </p>
             </StyledAboutEkikrit>
+            {/* <NavbarMarquee /> */}
+
             <FooterComponent />
         </>
     );

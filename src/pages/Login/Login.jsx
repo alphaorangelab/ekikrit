@@ -1,14 +1,24 @@
 import { Button, Form, Input } from "antd";
 import { StyledLoginContainer } from "./style";
 import Logo from "../../assets/Ekikrit_sahakari.png";
-import { useState } from "react";
-const onFinish = (values) => {
-    console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-};
+import { useNavigate } from "react-router-dom";
+import { loginApi } from "./api";
+
 const Login = () => {
+    const history = useNavigate();
+    const onFinish = (values) => {
+        console.log("Success:", values);
+
+        const formData = {
+            userName: values?.username,
+            password: values?.password,
+        };
+
+        loginApi({ formData, history });
+    };
+    const onFinishFailed = (errorInfo) => {
+        console.log("Failed:", errorInfo);
+    };
     return (
         <StyledLoginContainer>
             <Form
