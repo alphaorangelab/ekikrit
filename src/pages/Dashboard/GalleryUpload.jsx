@@ -2,36 +2,98 @@ import { message, Upload, Button, Input } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import { StyledGalleryUpload } from "./style";
 import { dummyRequest } from "../../helper";
-const { Dragger } = Upload;
-const props = {
-    name: "file",
-    maxCount: 1,
-    showUploadList: false,
-    accept: "image/*",
-    customRequest: dummyRequest,
-    onChange(info) {
-        const { status } = info.file;
-        if (status !== "uploading") {
-            console.log(info.file, info.fileList);
-        }
-        if (status === "done") {
-            message.success(`${info.file.name} file uploaded successfully.`);
-        } else if (status === "error") {
-            message.error(`${info.file.name} file upload failed.`);
-        }
-    },
-    onDrop(e) {
-        console.log("Dropped files", e.dataTransfer.files);
-    },
-};
+import { useState } from "react";
+import { saveGallery, updateGallery } from "./api";
 
-const GalleryUpload = () => {
+const GalleryUpload = ({
+    setOpenUploadGallery,
+    setGalleryList,
+    galleryList,
+    galleryObj,
+    setGalleryObj,
+    isEdit,
+    setIsEdit,
+    id,
+}) => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const { token } = userData;
+
+    const { Dragger } = Upload;
+    const props = {
+        name: "file",
+        multiple: true,
+        maxCount: 5,
+        accept: "image/*",
+        customRequest: dummyRequest,
+        onChange(info) {
+            const { status } = info.file;
+            if (status !== "uploading") {
+                console.log(info.file, info.fileList);
+            }
+            if (status === "done") {
+                const file = new FormData();
+                console.log(info, "file at the gallery");
+                file.append("files", info?.file?.originFileObj);
+                console.log(info?.file, "here in the upload");
+                fetch("http://localhost:3000/upload", {
+                    method: "POST",
+                    headers: {
+                        Authorization: token,
+                    },
+                    body: file,
+                })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        const obj = {
+                            imageUrl: data?.urls[0],
+                            imageSize: info?.file?.size,
+                            imageName: info?.file?.name,
+                        };
+                        console.log(data, "how many times do i called?");
+                        setGalleryObj((prevGalleryObj) => ({
+                            ...prevGalleryObj,
+                            imageList: [...prevGalleryObj.imageList, obj],
+                        }));
+                        // Process the newly created user data
+                        // localStorage.setItem("userData", JSON.stringify(newUserData));
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+            } else if (status === "error") {
+                message.error(`${info.file.name} file upload failed.`);
+            }
+        },
+        onDrop(e) {
+            console.log("Dropped files", e.dataTransfer.files);
+        },
+    };
+    console.log(galleryObj, "gallery object");
     return (
         <StyledGalleryUpload>
             <h3>Title</h3>
-            <Input size="large" />
+            <Input
+                size="large"
+                onChange={(e) =>
+                    setGalleryObj({ ...galleryObj, title: e.target.value })
+                }
+                value={galleryObj?.title}
+            />
             <h3>Description</h3>
-            <Input.TextArea />
+            <Input.TextArea
+                onChange={(e) =>
+                    setGalleryObj({
+                        ...galleryObj,
+                        description: e.target.value,
+                    })
+                }
+                value={galleryObj?.description}
+            />
             <h3>Upload Picture</h3>
 
             <Dragger {...props}>
@@ -60,8 +122,26 @@ const GalleryUpload = () => {
                         background: "#027d34",
                         color: "#ffffff",
                     }}
+                    onClick={() => {
+                        isEdit
+                            ? updateGallery({
+                                  gallery: galleryObj,
+                                  setOpenUploadGallery,
+                                  setGalleryObj,
+                                  setGalleryList,
+                                  galleryList,
+                                  id,
+                              })
+                            : saveGallery({
+                                  gallery: galleryObj,
+                                  setOpenUploadGallery,
+                                  setGalleryObj,
+                                  setGalleryList,
+                                  galleryList,
+                              });
+                    }}
                 >
-                    Upload
+                    {isEdit ? "Update" : "Upload"}
                 </Button>
             </div>
         </StyledGalleryUpload>

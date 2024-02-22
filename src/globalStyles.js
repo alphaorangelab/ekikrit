@@ -13,7 +13,28 @@ const GlobalStyle = createGlobalStyle`
   } */
   }
   .ant-popover-inner {
-	padding: 0 !important
+	padding: 0 !important;
+	border-radius: 0 !important;
+	margin-top:7px !important;
+  }
+  .ant-popover-placement-bottomLeft {
+	${"" /* inset: 319px auto auto 366.938px !important; */}
+  }
+
+  .floating-create {
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    bottom: 20px;
+    z-index:10;
+  }
+
+  .ant-modal-close {
+	${
+        "" /* top: -5px !important;
+	inset-inline-end: 5px !important; */
+    }
+	width: 35px !important;
   }
   ${
       "" /* .ant-menu-light .ant-menu-item-selected{

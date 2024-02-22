@@ -11,7 +11,7 @@ const NavbarMarquee = () => {
                     सुनिश्चित पार्नको लागि बचत गर्ने बानी बसालौँ।।
                 </div>
             </div>
-            <div className="contacts">
+            {/* <div className="contacts">
                 <span className="content">
                     <FiPhoneCall />
                     041-45687
@@ -20,7 +20,7 @@ const NavbarMarquee = () => {
                     <FiMail />
                     EkikritKrishaksacop@gmail.com
                 </span>
-            </div>
+            </div> */}
         </StyledNavbarMarquee>
     );
 };

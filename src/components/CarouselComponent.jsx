@@ -7,14 +7,14 @@ import picture4 from "../assets/picture_4.jpg";
 const contentStyle = {
     height: "700px",
     color: "#fff",
-    lineHeight: "160px",
+    // lineHeight: "160px",
     textAlign: "center",
     background: "#364d79",
 };
 const CarouselComponent = () => (
-    <Carousel autoplay>
-        <div>
-            <h3 style={contentStyle}>
+    <Carousel autoplay style={{ height: "100%" }}>
+        <div style={contentStyle}>
+            <div style={contentStyle}>
                 <img
                     src={picture1}
                     height="100%"
@@ -22,10 +22,10 @@ const CarouselComponent = () => (
                     alt="pic"
                     style={{ objectFit: "cover" }}
                 />
-            </h3>
+            </div>
         </div>
         <div>
-            <h3 style={contentStyle}>
+            <div style={contentStyle}>
                 {" "}
                 <img
                     src={picture2}
@@ -34,10 +34,10 @@ const CarouselComponent = () => (
                     alt="pic"
                     style={{ objectFit: "cover" }}
                 />
-            </h3>
+            </div>
         </div>
         <div>
-            <h3 style={contentStyle}>
+            <div style={contentStyle}>
                 {" "}
                 <img
                     src={picture3}
@@ -46,10 +46,10 @@ const CarouselComponent = () => (
                     alt="pic"
                     style={{ objectFit: "cover" }}
                 />
-            </h3>
+            </div>
         </div>
         <div>
-            <h3 style={contentStyle}>
+            <div style={contentStyle}>
                 {" "}
                 <img
                     src={picture4}
@@ -58,7 +58,7 @@ const CarouselComponent = () => (
                     alt="pic"
                     style={{ objectFit: "cover" }}
                 />
-            </h3>
+            </div>
         </div>
     </Carousel>
 );

@@ -39,12 +39,12 @@ const Dashboard = () => {
                             label: "Gallery List",
                             style: { color: "#ffffff" },
                         },
-                        {
-                            key: 3,
-                            icon: <FileImageOutlined />,
-                            label: "Gallery Upload",
-                            style: { color: "#ffffff" },
-                        },
+                        // {
+                        //     key: 3,
+                        //     icon: <FileImageOutlined />,
+                        //     label: "Gallery Upload",
+                        //     style: { color: "#ffffff" },
+                        // },
                     ]}
                     onClick={(value) => {
                         setSelectedTab(value?.key);
