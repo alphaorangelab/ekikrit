@@ -2,14 +2,16 @@ import React from "react";
 import NavbarComponent from "../../components/Nabvar/Navbar";
 import { StyledComponent } from "../style";
 import FooterComponent from "../../components/FooterComponent";
+import { useTranslation } from "react-i18next";
 
 const DepositService = () => {
+    const { t } = useTranslation();
     return (
         <>
             {" "}
             <NavbarComponent />
             <StyledComponent>
-                <h2>Deposit Services</h2>
+                <h2>{t("Deposit Services")}</h2>
                 <ol>
                     <li>जेष्ठ नागरीक बचत योजना (६० वर्ष पुरा भइ सकेपछि)</li>
                     <li>सुरक्षित भविष्य बचत योजना</li>

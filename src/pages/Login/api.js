@@ -1,5 +1,6 @@
+import { baseApiUrl } from "../../config";
 export const loginApi = ({ formData, history }) => {
-    fetch("http://localhost:3000/login", {
+    fetch(`${baseApiUrl}/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

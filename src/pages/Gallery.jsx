@@ -6,6 +6,7 @@ import NavbarMarquee from "../components/NavbarMarquee";
 import Navbar from "../components/Nabvar";
 import FooterComponent from "../components/FooterComponent";
 import NavbarComponent from "../components/Nabvar/Navbar";
+import { baseApiUrl } from "../config";
 
 const { Meta } = Card;
 
@@ -15,7 +16,7 @@ const Gallery = () => {
     const navigate = useNavigate();
     useEffect(() => {
         setLoading(true);
-        fetch("http://localhost:3000/gallery", {
+        fetch(`${baseApiUrl}/gallery`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

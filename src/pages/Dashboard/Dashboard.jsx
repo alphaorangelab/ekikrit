@@ -10,6 +10,7 @@ import { Layout, Menu, Button, theme } from "antd";
 import GalleryUpload from "./GalleryUpload";
 import GalleryList from "./GalleryList";
 import NoticeUpload from "./NoticeUpload";
+import { useTranslation } from "react-i18next";
 const { Header, Sider, Content } = Layout;
 const Dashboard = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -17,6 +18,7 @@ const Dashboard = () => {
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
+    const { t } = useTranslation();
     return (
         <Layout style={{ height: "100%" }}>
             <Sider trigger={null} collapsible collapsed={collapsed} width={400}>

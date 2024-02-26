@@ -1,45 +1,47 @@
+import { useTranslation } from "react-i18next";
 import Logo from "../assets/Ekikrit_sahakari.png";
 import { StyledDescription } from "./style";
 
 const DescriptionComponent = () => {
+    const { t } = useTranslation();
     return (
         <StyledDescription>
-            <h2>About Ekikrit Krishak</h2>
+            <h2>{t("About Ekikrit Krishak")}</h2>
             <div className="container">
                 <div className="description">
-                    Ekikrit Saving & Credit Co-Operative Ltd. (ESCCOOP) welcomes
-                    you. Our cooperative is located in Ratnanagar, Chitwan,
-                    Nepal, and our main objective is to provide convenient,
-                    secure, and sustainable banking and non-banking services. We
-                    aim to contribute to the community's development through
-                    microfinance and other services by facilitating the
-                    collective development of our members. Our organization
-                    adheres to the principles and values of the international
-                    cooperative movement and follows the Cooperative Act of the
-                    Government of Nepal in a non-partisan manner. Unified
-                    Farmers Savings and Credit Cooperative Limited is registered
-                    under Cooperative Act with registration number 978/068/069.
-                    Our organization operates solely from its main office in
-                    Ratnanagar, Chitwan, managed with dedication and efficiency.
-                    We have a total of 487 members from various demographics.
-                    The organization is run by 11 staff members, including 7 men
-                    and 4 women, who are committed to serving the members with
-                    excellence and professionalism. Under the leadership of our
-                    esteemed CEO, Mr. Vishnu Prasad Aryal, our organization is
-                    guided by an experienced, dedicated, and visionary
-                    management board, executive committee, sub-committees, audit
-                    committee, and competent staff. We have plans to introduce
-                    internet banking services for continuous improvement and
-                    modernization. For your convenience and ease, our office
-                    hours are from 10:00 am to 5:00 pm from Saturday to Friday,
-                    and from 10:00 am to 3:00 pm on Fridays. If you have any
-                    questions or need assistance, please contact us at
-                    +97745356310 or email us at
-                    ekikritkrishakekikritkrishak@gmail.com. Thank you for
-                    considering Unified Farmers Savings and Credit Cooperative
-                    Limited as your financial partner. We are committed to
-                    serving you and supporting your financial well-being and
-                    community development.
+                    {t(`एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडको परिचय एकीकृत
+                    कृषक बचत तथा ऋण सहकारी संघ लिमिटेडमा स्वागत छ। हाम्रो सहकारी
+                    रत्ननगर, चितवन, नेपालमा स्थित छ र हाम्रो मुख्य उद्देश्य
+                    सवारीको अर्थात् मानसिक, सुरक्षित र स्थायी बैंकिंग र
+                    गैर-बैंकिंग सेवाहरू प्रदान गर्नु हो। हाम्रो सामुदायिक
+                    विकासका लागि माइक्रोफाइनान्स र अन्य सेवाहरूको माध्यमबाट
+                    सदस्यहरूको संयुक्त विकासको लागि हो। हाम्रो संगठन
+                    अन्तर्राष्ट्रिय सहकारी आन्दोलनका मान्यता, मूल्यहरू र
+                    सिद्धान्तहरूको पालना गर्दछ र नेपाल सरकारको सहकारी अधिनियमका
+                    नियम, तत्त्व र विधि–विधानलाई पक्षपाती रूपमा अनुसरण गर्दछ।
+                    एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडलाई पंजीकरण नम्बर
+                    ९७८/०६८/०६९ को सहकारी अधिनियम अन्तर्गत पंजीकृत गरिएको छ।
+                    हाम्रो संगठन रत्ननगर, चितवनको मात्रै मुख्य कार्यालयबाट
+                    संचालन गरिएको छ, जुन एकाग्रता र दक्षताको लागि तयार छ। एकीकृत
+                    कृषक बचत तथा ऋण सहकारी संघ लिमिटेडमा सदस्यहरूको विविध
+                    जनश्रेणीका ४८७ जनाको पूर्ण संख्या छ। हाम्रो संगठन ११
+                    कर्मचारीहरूद्वारा व्यवस्थित गरिएको छ, जसमा ७ पुरुष र ४ महिला
+                    हुन्छन्, जुन सदस्यहरूलाई उत्कृष्टता साथै परिषेबद्धतामा सेवा
+                    गर्ने कर्मचारीहरूसँग गर्दछ। हाम्रो प्रतिष्ठित सीईओ, श्री
+                    विष्णु प्रसाद आर्यालको नेतृत्वमा हाम्रो संगठन अनुभवी,
+                    समर्पित र दृष्टिबद्ध प्रबन्धन बोर्ड, प्रबन्धन, उप–समितिहरू,
+                    लेखा पर्यवेक्षण समिति र योग्य कर्मचारीहरूद्वारा चलाइएको छ।
+                    निरंतर सुधार र नवाइकरणको लागि हाम्रो संघ इन्टरनेट बैंकिङ
+                    सेवाहरू भविष्यमा ल्याउने योजना गरेको छ। तपाईंको सुविधा र
+                    सहजताका लागि, हाम्रो कार्यालयको समय शनिवारबाट शुक्रवारसम्म
+                    १०:०० बजे बाट ५:०० बजेसम्म र, शुक्रवारमा १०:०० बजे बाट ३:००
+                    बजेसम्म हुन्छ। कुनै प्रश्न वा सहायता आवश्यक भएमा कृपया
+                    हामीलाई ९७४५३५६३१० नम्बरमा सम्पर्क गर्नुहोस् वा इमेलमा
+                    ekikritkrishakekikritkrishak@gmail.com मा सम्पर्क गर्नुहोस्।
+                    एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडलाई तपाईंको आर्थिक
+                    साथीको रूपमा छनोट गर्नुको लागि धन्यवाद। हामी तपाईंलाई सेवा
+                    गर्न र तपाईंको आर्थिक कल्याण र समुदाय विकासमा सहयोग गर्न
+                    तत्पर छौं।`)}
                 </div>
                 <div className="logo-container">
                     <img src={Logo} alt="logo" height={250} width={250} />

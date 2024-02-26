@@ -2,6 +2,7 @@ import {
     showErrorNotification,
     showSuccessNotification,
 } from "../../components/Notificaion";
+import { baseApiUrl } from "../../config";
 
 const userData = JSON.parse(localStorage.getItem("userData"));
 console.log(userData, "userdata");
@@ -13,7 +14,7 @@ export const uploadFileApi = ({ formData }) => {
     console.log(formData, "file at the..");
     const file = new FormData();
     file.append("file", formData.originFileObj);
-    fetch("http://localhost:3000/upload", {
+    fetch(`${baseApiUrl}/upload`, {
         method: "POST",
         headers: {
             Authorization: token,
@@ -38,7 +39,7 @@ export const uploadFileApi = ({ formData }) => {
 };
 
 export const saveNotice = ({ notice, id }) => {
-    fetch(`http://localhost:3000/notice/${id}`, {
+    fetch(`${baseApiUrl}/notice/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -71,7 +72,7 @@ export const saveGallery = ({
     setGalleryList,
     galleryList,
 }) => {
-    fetch(`http://localhost:3000/gallery`, {
+    fetch(`${baseApiUrl}/gallery`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -120,7 +121,7 @@ export const updateGallery = ({
     galleryList,
     id,
 }) => {
-    fetch(`http://localhost:3000/gallery/${id}`, {
+    fetch(`${baseApiUrl}/gallery/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -162,7 +163,7 @@ export const updateGallery = ({
 };
 
 export const deleteGallery = ({ id }) => {
-    fetch(`http://localhost:3000/gallery/${id}`, {
+    fetch(`${baseApiUrl}/gallery/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

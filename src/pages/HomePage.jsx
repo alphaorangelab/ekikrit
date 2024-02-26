@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import CarouselComponent from "../components/CarouselComponent";
 import DescriptionComponent from "../components/DescriptionComponent";
 import FooterComponent from "../components/FooterComponent";
@@ -8,6 +9,7 @@ import { profileCardData } from "../components/helper";
 import { StyledContainer } from "./style";
 
 export default function HomePage() {
+    const { t } = useTranslation();
     return (
         <>
             <NavbarComponent />
@@ -19,7 +21,7 @@ export default function HomePage() {
                     <DescriptionComponent />
                 </div>
                 <div className="institutional-profile">
-                    <h2>Institutional Profile</h2>
+                    <h2>{t("Institutional Profile")}</h2>
                     <div className="profile-card-container">
                         {profileCardData.map((single) => (
                             <ProfileCard key={single?.key} data={single} />

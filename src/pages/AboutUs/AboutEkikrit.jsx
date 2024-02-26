@@ -4,13 +4,15 @@ import NavbarMarquee from "../../components/NavbarMarquee";
 import Navbar from "../../components/Nabvar";
 import FooterComponent from "../../components/FooterComponent";
 import NavbarComponent from "../../components/Nabvar/Navbar";
+import { useTranslation } from "react-i18next";
 
 const AboutEkikrit = () => {
+    const { t } = useTranslation();
     return (
         <>
             <NavbarComponent />
             <StyledAboutEkikrit>
-                <h2>Introduction</h2>
+                <h2>{t("Introduction")}</h2>
                 <p>
                     एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडको परिचय एकीकृत
                     कृषक बचत तथा ऋण सहकारी संघ लिमिटेडमा स्वागत छ। हाम्रो सहकारी

@@ -3,9 +3,11 @@ import { StyledLoginContainer } from "./style";
 import Logo from "../../assets/Ekikrit_sahakari.png";
 import { useNavigate } from "react-router-dom";
 import { loginApi } from "./api";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
     const history = useNavigate();
+    const { t } = useTranslation();
     const onFinish = (values) => {
         console.log("Success:", values);
 
@@ -44,7 +46,7 @@ const Login = () => {
                 layout="vertical"
             >
                 <img src={Logo} alt="logo" width={60} height={60} />
-                <h1 style={{ color: "#027d34", margin: "0" }}>Login</h1>
+                <h1 style={{ color: "#027d34", margin: "0" }}>{t("Login")}</h1>
                 <Form.Item
                     label="Username"
                     name="username"
@@ -88,7 +90,7 @@ const Login = () => {
                         }}
                         size="large"
                     >
-                        Login
+                        {t("Login")}
                     </Button>
                 </Form.Item>
             </Form>

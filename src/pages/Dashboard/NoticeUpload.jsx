@@ -5,10 +5,13 @@ import { StyledNewsUpload } from "./style";
 import { dummyRequest } from "../../helper";
 import { saveNotice } from "./api";
 import { IoCloseCircle } from "react-icons/io5";
+import { baseApiUrl } from "../../config";
+import { useTranslation } from "react-i18next";
 
 const NoticeUpload = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const { token } = userData;
+    const { t } = useTranslation();
 
     const [noticeObj, setNoticeObj] = useState({
         notice: false,
@@ -18,7 +21,7 @@ const NoticeUpload = () => {
     const { Dragger } = Upload;
 
     useEffect(() => {
-        fetch("http://localhost:3000/notice", {
+        fetch(`${baseApiUrl}/notice`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -59,7 +62,7 @@ const NoticeUpload = () => {
             if (status === "done") {
                 const file = new FormData();
                 file.append("files", info?.file?.originFileObj);
-                fetch("http://localhost:3000/upload", {
+                fetch(`${baseApiUrl}/upload`, {
                     method: "POST",
                     headers: {
                         Authorization: token,
@@ -188,7 +191,7 @@ const NoticeUpload = () => {
                         })
                     }
                 >
-                    Save
+                    {t("Save")}
                 </Button>
             </div>
         </StyledNewsUpload>

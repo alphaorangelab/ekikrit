@@ -4,39 +4,45 @@ import { IoLocation } from "react-icons/io5";
 
 import { StyledFooterComponent } from "./style";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const FooterComponent = () => {
+    const { t } = useTranslation();
     return (
         <StyledFooterComponent>
             <div className="footer-container">
                 <div className="our-services">
-                    <h4>Our Services</h4>
+                    <h4>{t("Our Services")}</h4>
                     <ul>
                         <li>
-                            <Link to={"/loan-service"}>Loan Service</Link>{" "}
+                            <Link to={"/loan-service"}>
+                                {t("Loan Service")}
+                            </Link>{" "}
                         </li>
                         <li>
-                            <Link to={"/deposit-service"}>Deposit Service</Link>
+                            <Link to={"/deposit-service"}>
+                                {t("Deposit Service")}
+                            </Link>
                         </li>
                     </ul>
                 </div>
                 <div className="our-services">
-                    <h4>Links</h4>
+                    <h4>{t("Links")}</h4>
                     <ul>
                         <li>
-                            <Link to={"/home"}>Home</Link>
+                            <Link to={"/home"}>{t("Home")}</Link>
                         </li>
                         <li>
-                            <Link to={"/about-ekikrit"}>About Us</Link>
+                            <Link to={"/about-ekikrit"}>{t("About Us")}</Link>
                         </li>
 
                         <li>
-                            <Link to={"/gallery"}>Gallery</Link>
+                            <Link to={"/gallery"}>{t("Gallery")}</Link>
                         </li>
                     </ul>
                 </div>
                 <div className="our-services">
-                    <h4>Contact Us</h4>
+                    <h4>{t("Contact Us")}</h4>
                     <ul>
                         <li className="content">
                             <FiPhoneCall /> 041-45687
@@ -49,7 +55,7 @@ const FooterComponent = () => {
                     </ul>
                 </div>
                 <div className="our-services">
-                    <h4>Location</h4>
+                    <h4>{t("Location")}</h4>
                     <ul>
                         <li className="content">
                             <IoLocation />

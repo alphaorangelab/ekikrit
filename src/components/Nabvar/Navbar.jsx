@@ -11,9 +11,11 @@ import {
     StyledButton,
     StyledNavbarComponent,
 } from "./style";
+import { useTranslation } from "react-i18next";
 
 const NavbarComponent = () => {
     const location = useLocation();
+    const { t } = useTranslation();
 
     return (
         <StyledNavbarComponent>
@@ -21,7 +23,7 @@ const NavbarComponent = () => {
                 <div className="logo-container">
                     <img src={Logo} alt="logo" className="logo" />
                     <div className="logo-text">
-                        <span>Ekikrit Krishak</span>
+                        <span>{t(`Ekikrit Krishak`)}</span>
                         <span>Savings & Credit</span>
                     </div>
                 </div>
@@ -50,7 +52,7 @@ const NavbarComponent = () => {
                         location?.pathname === "/home"
                     }
                 >
-                    <Link to={"/"}>HOME</Link>
+                    <Link to={"/"}>{t("HOME")}</Link>
                 </StyledButton>
 
                 <Popover
@@ -61,10 +63,10 @@ const NavbarComponent = () => {
                                 to={"/about-ekikrit"}
                                 style={{ borderBottom: "2px solid #f5f5f5" }}
                             >
-                                About Ekikrit
+                                {t("About Ekikrit")}
                             </Link>
                             <Link className="content" to={"/teams"}>
-                                Our Team
+                                {t("Our Team")}
                             </Link>
                         </StyledAboutUsContent>
                     }
@@ -85,7 +87,7 @@ const NavbarComponent = () => {
                                 gap: "3px",
                             }}
                         >
-                            ABOUT US <FaChevronDown />
+                            {t("ABOUT US")} <FaChevronDown />
                         </Link>
                     </StyledButton>
                 </Popover>
@@ -98,10 +100,10 @@ const NavbarComponent = () => {
                                 to={"/loan-service"}
                                 style={{ borderBottom: "2px solid #f5f5f5" }}
                             >
-                                Loan Service
+                                {t("Loan Service")}
                             </Link>
                             <Link className="content" to={"/deposit-service"}>
-                                Deposit Service
+                                {t("Deposit Service")}
                             </Link>
                         </StyledAboutUsContent>
                     }
@@ -122,7 +124,7 @@ const NavbarComponent = () => {
                                 gap: "3px",
                             }}
                         >
-                            SERVICES <FaChevronDown />
+                            {t("SERVICES")} <FaChevronDown />
                         </Link>
                     </StyledButton>
                 </Popover>
@@ -131,7 +133,7 @@ const NavbarComponent = () => {
                     key={4}
                     isActive={location?.pathname === "/gallery"}
                 >
-                    <Link to={"/gallery"}>GALLERY</Link>{" "}
+                    <Link to={"/gallery"}>{t("GALLERY")}</Link>{" "}
                 </StyledButton>
             </div>
         </StyledNavbarComponent>
