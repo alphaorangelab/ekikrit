@@ -4,6 +4,8 @@ import { StyledGalleryUpload } from "./style";
 import { dummyRequest } from "../../helper";
 import { useState } from "react";
 import { saveGallery, updateGallery } from "./api";
+import { baseApiUrl } from "../../config";
+import { useTranslation } from "react-i18next";
 
 const GalleryUpload = ({
     setOpenUploadGallery,
@@ -17,6 +19,7 @@ const GalleryUpload = ({
 }) => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const { token } = userData;
+    const { t } = useTranslation();
 
     const { Dragger } = Upload;
     const props = {
@@ -35,7 +38,7 @@ const GalleryUpload = ({
                 console.log(info, "file at the gallery");
                 file.append("files", info?.file?.originFileObj);
                 console.log(info?.file, "here in the upload");
-                fetch("http://localhost:3000/upload", {
+                fetch(`${baseApiUrl}/upload`, {
                     method: "POST",
                     headers: {
                         Authorization: token,
@@ -141,7 +144,7 @@ const GalleryUpload = ({
                               });
                     }}
                 >
-                    {isEdit ? "Update" : "Upload"}
+                    {isEdit ? t("Update") : t("Upload")}
                 </Button>
             </div>
         </StyledGalleryUpload>

@@ -4,6 +4,7 @@ import Logo from "../../assets/Ekikrit_sahakari.png";
 
 import { StyledAboutUsContent, StyledButton, StyledNavbar } from "./style";
 import { Popover } from "antd";
+import { useTranslation } from "react-i18next";
 
 const drawerWidth = 240;
 
@@ -22,6 +23,8 @@ function Navbar(props) {
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+
+    const { t } = useTranslation();
 
     // const handleClose = () => {
     //     setAnchorEl(null);
@@ -54,8 +57,8 @@ function Navbar(props) {
                             fontWeight: 500,
                         }}
                     >
-                        <span>Ekikrit Krishak</span>
-                        <span>Savings & Credit</span>
+                        <span>{t("Ekikrit Krishak")}</span>
+                        <span>{t("Savings & Credit")}</span>
                     </div>
                 </div>
 

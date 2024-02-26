@@ -2,14 +2,16 @@ import React from "react";
 import NavbarComponent from "../../components/Nabvar/Navbar";
 import FooterComponent from "../../components/FooterComponent";
 import { StyledComponent } from "../style";
+import { useTranslation } from "react-i18next";
 
 const LoanService = () => {
+    const { t } = useTranslation();
     return (
         <>
             {" "}
             <NavbarComponent />
             <StyledComponent>
-                <h2>Loan Services</h2>
+                <h2>{t("Loan Services")}</h2>
                 <ol>
                     <li>घर-घडेरी कर्जा (Home and Land Loan)</li>
                     <li>बैदेशिक राेजगारी कर्जा (Foreigner Employment Loan)</li>

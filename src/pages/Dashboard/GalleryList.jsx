@@ -2,6 +2,7 @@ import { Button, Modal, Space, Table, Tag } from "antd";
 import { useEffect, useState } from "react";
 import FloatingBtn from "../../components/FloatingBtn";
 import GalleryUpload from "./GalleryUpload";
+import { baseApiUrl } from "../../config";
 
 const GalleryList = () => {
     const userData = localStorage.getItem("userData");
@@ -86,7 +87,7 @@ const GalleryList = () => {
         },
     ];
     useEffect(() => {
-        fetch("http://localhost:3000/gallery", {
+        fetch(`${baseApiUrl}/gallery`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -111,7 +112,7 @@ const GalleryList = () => {
     }, []);
 
     const deleteGallery = ({ id }) => {
-        fetch(`http://localhost:3000/gallery/${id}`, {
+        fetch(`${baseApiUrl}/gallery/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -144,7 +145,7 @@ const GalleryList = () => {
     useEffect(() => {
         setLoading(true);
         if (openUploadGallery) {
-            fetch(`http://localhost:3000/gallery/${selectedId}`, {
+            fetch(`${baseApiUrl}/gallery/${selectedId}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

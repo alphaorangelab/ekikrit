@@ -6,14 +6,14 @@ import FooterComponent from "../components/FooterComponent";
 import { useEffect, useState } from "react";
 import { Card, Spin } from "antd";
 import NavbarComponent from "../components/Nabvar/Navbar";
-
+import { baseApiUrl } from "../config";
 const GalleryDetail = () => {
     const [gallery, setGallery] = useState();
     const { galleryId } = useParams();
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:3000/gallery/${galleryId}`, {
+        fetch(`${baseApiUrl}/${galleryId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

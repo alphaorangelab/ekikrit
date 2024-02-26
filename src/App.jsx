@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Nabvar";
 import GlobalStyle from "./globalStyles";
 import HomePage from "./pages/HomePage";
 import AboutUs from "./pages/AboutUs";
-import News from "./pages/News";
 import Gallery from "./pages/Gallery";
-import NavbarMarquee from "./components/NavbarMarquee";
 import { Modal } from "antd";
-import FooterComponent from "./components/FooterComponent";
 import { IoCloseCircle } from "react-icons/io5";
 import AboutEkikrit from "./pages/AboutUs/AboutEkikrit";
 import Login from "./pages/Login/Login";
@@ -19,6 +15,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import LoanService from "./pages/Services/LoanService";
 import DepositService from "./pages/Services/DepositService";
 import OurTeams from "./pages/AboutUs/OurTeams";
+import { baseApiUrl } from "./config";
 
 function App() {
     const [noticeObj, setNoticeObj] = useState({
@@ -26,7 +23,7 @@ function App() {
         noticeUrl: "",
     });
     useEffect(() => {
-        fetch("http://localhost:3000/notice", {
+        fetch(`${baseApiUrl}/notice`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
