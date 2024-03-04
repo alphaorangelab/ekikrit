@@ -72,6 +72,7 @@ export const StyledGalleryContainer = styled.div`
     flex-wrap: wrap;
     gap: 20px;
     padding: 50px 150px;
+    minheight: 50vh;
 `;
 
 export const StyledComponent = styled.div`

@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import FloatingBtn from "../../components/FloatingBtn";
 import GalleryUpload from "./GalleryUpload";
 import { baseApiUrl } from "../../config";
+import { getToken } from "../../localStorage";
 
 const GalleryList = () => {
     const userData = localStorage.getItem("userData");
-    const { token } = userData;
+    // const { token } = userData;
+
+    const token = getToken();
 
     const [galleryList, setGalleryList] = useState([]);
     const [openModal, setOpenModal] = useState(false);

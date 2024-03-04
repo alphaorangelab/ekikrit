@@ -3,12 +3,16 @@ import {
     showSuccessNotification,
 } from "../../components/Notificaion";
 import { baseApiUrl } from "../../config";
+import { getToken } from "../../localStorage";
 
-const userData = JSON.parse(localStorage.getItem("userData"));
-console.log(userData, "userdata");
-if (userData !== null) {
-    var { token } = userData;
-}
+// const userData = JSON.parse(localStorage.getItem("userData"));
+// console.log(userData, "userdata");
+// if (userData !== null) {
+//     var { token } = userData;
+
+// }
+
+const token = getToken();
 
 export const uploadFileApi = ({ formData }) => {
     console.log(formData, "file at the..");

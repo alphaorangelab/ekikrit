@@ -7,10 +7,12 @@ import { saveNotice } from "./api";
 import { IoCloseCircle } from "react-icons/io5";
 import { baseApiUrl } from "../../config";
 import { useTranslation } from "react-i18next";
+import { getToken } from "../../localStorage";
 
 const NoticeUpload = () => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    const { token } = userData;
+    // const userData = JSON.parse(localStorage.getItem("userData"));
+    // const { token } = userData;
+    const token = getToken();
     const { t } = useTranslation();
 
     const [noticeObj, setNoticeObj] = useState({

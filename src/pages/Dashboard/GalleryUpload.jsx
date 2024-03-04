@@ -6,6 +6,7 @@ import { useState } from "react";
 import { saveGallery, updateGallery } from "./api";
 import { baseApiUrl } from "../../config";
 import { useTranslation } from "react-i18next";
+import { getToken } from "../../localStorage";
 
 const GalleryUpload = ({
     setOpenUploadGallery,
@@ -17,8 +18,10 @@ const GalleryUpload = ({
     setIsEdit,
     id,
 }) => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    const { token } = userData;
+    // const userData = JSON.parse(localStorage.getItem("userData"));
+    // const { token } = userData;
+
+    const token = getToken();
     const { t } = useTranslation();
 
     const { Dragger } = Upload;

@@ -4,7 +4,7 @@ import NavbarMarquee from "../components/NavbarMarquee";
 import Navbar from "../components/Nabvar";
 import FooterComponent from "../components/FooterComponent";
 import { useEffect, useState } from "react";
-import { Card, Spin } from "antd";
+import { Card, Empty, Spin } from "antd";
 import NavbarComponent from "../components/Nabvar/Navbar";
 import { baseApiUrl } from "../config";
 const GalleryDetail = () => {
@@ -13,7 +13,7 @@ const GalleryDetail = () => {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
-        fetch(`${baseApiUrl}/${galleryId}`, {
+        fetch(`${baseApiUrl}/gallery/${galleryId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -51,31 +51,41 @@ const GalleryDetail = () => {
                         height: "50%",
                     }}
                 />
-            ) : (
+            ) : gallery?.imageList?.length > 0 ? (
                 <StyledGalleryContainer>
-                    {gallery &&
-                        gallery?.imageList.map((single) => (
-                            <div
-                                style={{
-                                    border: "1px solid #dddddd",
-                                    padding: "15px",
-                                    borderRadius: "4px",
-                                    transition: "border .2s ease-in-out",
-                                    minHeight: "350px",
-                                    minWidth: "400px",
-                                }}
-                                key={single?._id}
-                            >
-                                <img
-                                    src={single?.imageUrl}
-                                    height={350}
-                                    width={400}
-                                    alt="image"
-                                    // style={{ objectFit: "contain" }}
-                                />
-                            </div>
-                        ))}
+                    {gallery?.imageList.map((single) => (
+                        <div
+                            style={{
+                                border: "1px solid #dddddd",
+                                padding: "15px",
+                                borderRadius: "4px",
+                                transition: "border .2s ease-in-out",
+                                minHeight: "350px",
+                                minWidth: "400px",
+                            }}
+                            key={single?._id}
+                        >
+                            <img
+                                src={single?.imageUrl}
+                                height={350}
+                                width={400}
+                                alt="image"
+                                // style={{ objectFit: "contain" }}
+                            />
+                        </div>
+                    ))}
                 </StyledGalleryContainer>
+            ) : (
+                <Empty
+                    imageStyle={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "50vh",
+                    }}
+                >
+                    <div></div>
+                </Empty>
             )}
             <FooterComponent />
         </>

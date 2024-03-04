@@ -18,6 +18,7 @@ const Dashboard = () => {
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
+
     const { t } = useTranslation();
     return (
         <Layout style={{ height: "100%" }}>

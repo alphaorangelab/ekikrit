@@ -64,7 +64,7 @@ const Gallery = () => {
                             cover={
                                 <img
                                     alt="example"
-                                    src={single?.imageList[0].imageUrl}
+                                    src={single?.imageList[0]?.imageUrl}
                                     height={240}
                                     style={{ objectFit: "contain" }}
                                 />
