@@ -11,6 +11,7 @@ import GalleryUpload from "./GalleryUpload";
 import GalleryList from "./GalleryList";
 import NoticeUpload from "./NoticeUpload";
 import { useTranslation } from "react-i18next";
+import { getToken } from "../../localStorage";
 const { Header, Sider, Content } = Layout;
 const Dashboard = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -20,6 +21,7 @@ const Dashboard = () => {
     } = theme.useToken();
 
     const { t } = useTranslation();
+
     return (
         <Layout style={{ height: "100%" }}>
             <Sider trigger={null} collapsible collapsed={collapsed} width={400}>

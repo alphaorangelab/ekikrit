@@ -6,10 +6,7 @@ import { baseApiUrl } from "../../config";
 import { getToken } from "../../localStorage";
 
 const GalleryList = () => {
-    const userData = localStorage.getItem("userData");
     // const { token } = userData;
-
-    const token = getToken();
 
     const [galleryList, setGalleryList] = useState([]);
     const [openModal, setOpenModal] = useState(false);
@@ -22,6 +19,15 @@ const GalleryList = () => {
         description: "",
         imageList: [],
     });
+
+    const [token, setToken] = useState("");
+
+    useEffect(() => {
+        const newToken = getToken();
+        if (newToken) {
+            setToken(newToken);
+        }
+    }, []);
 
     console.log(galleryList, "gallery list");
 
@@ -78,7 +84,7 @@ const GalleryList = () => {
                     <Button
                         onClick={() => {
                             setOpenModal(true);
-                            setIsEdit(true);
+                            // setIsEdit(true);
                             setSelectedId(data?._id);
                         }}
                         danger
@@ -204,6 +210,7 @@ const GalleryList = () => {
                 open={openUploadGallery}
                 centered
                 footer={null}
+                destroyOnClose
                 children={
                     <GalleryUpload
                         setOpenUploadGallery={setOpenUploadGallery}
@@ -211,8 +218,8 @@ const GalleryList = () => {
                         galleryList={galleryList}
                         galleryObj={galleryObj}
                         setGalleryObj={setGalleryObj}
-                        isEdit={isEdit}
-                        setIsEdit={setIsEdit}
+                        // isEdit={isEdit}
+                        // setIsEdit={setIsEdit}
                         id={selectedId}
                     />
                 }

@@ -3,7 +3,6 @@ import {
     showSuccessNotification,
 } from "../../components/Notificaion";
 import { baseApiUrl } from "../../config";
-import { getToken } from "../../localStorage";
 
 // const userData = JSON.parse(localStorage.getItem("userData"));
 // console.log(userData, "userdata");
@@ -12,9 +11,7 @@ import { getToken } from "../../localStorage";
 
 // }
 
-const token = getToken();
-
-export const uploadFileApi = ({ formData }) => {
+export const uploadFileApi = ({ formData, token }) => {
     console.log(formData, "file at the..");
     const file = new FormData();
     file.append("file", formData.originFileObj);
@@ -42,7 +39,7 @@ export const uploadFileApi = ({ formData }) => {
         });
 };
 
-export const saveNotice = ({ notice, id }) => {
+export const saveNotice = ({ notice, id, token }) => {
     fetch(`${baseApiUrl}/notice/${id}`, {
         method: "PUT",
         headers: {
@@ -75,6 +72,7 @@ export const saveGallery = ({
     setGalleryObj,
     setGalleryList,
     galleryList,
+    token,
 }) => {
     fetch(`${baseApiUrl}/gallery`, {
         method: "POST",
@@ -124,6 +122,7 @@ export const updateGallery = ({
     setGalleryList,
     galleryList,
     id,
+    token,
 }) => {
     fetch(`${baseApiUrl}/gallery/${id}`, {
         method: "PUT",
@@ -166,7 +165,7 @@ export const updateGallery = ({
         });
 };
 
-export const deleteGallery = ({ id }) => {
+export const deleteGallery = ({ id, token }) => {
     fetch(`${baseApiUrl}/gallery/${id}`, {
         method: "DELETE",
         headers: {

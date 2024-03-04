@@ -12,7 +12,14 @@ import { getToken } from "../../localStorage";
 const NoticeUpload = () => {
     // const userData = JSON.parse(localStorage.getItem("userData"));
     // const { token } = userData;
-    const token = getToken();
+    const [token, setToken] = useState("");
+
+    useEffect(() => {
+        const newToken = getToken();
+        if (newToken) {
+            setToken(newToken);
+        }
+    }, []);
     const { t } = useTranslation();
 
     const [noticeObj, setNoticeObj] = useState({
@@ -190,6 +197,7 @@ const NoticeUpload = () => {
                         saveNotice({
                             notice: noticeObj,
                             id: noticeObj?.id,
+                            token,
                         })
                     }
                 >

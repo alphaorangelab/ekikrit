@@ -2,7 +2,7 @@ import { message, Upload, Button, Input } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import { StyledGalleryUpload } from "./style";
 import { dummyRequest } from "../../helper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { saveGallery, updateGallery } from "./api";
 import { baseApiUrl } from "../../config";
 import { useTranslation } from "react-i18next";
@@ -21,7 +21,15 @@ const GalleryUpload = ({
     // const userData = JSON.parse(localStorage.getItem("userData"));
     // const { token } = userData;
 
-    const token = getToken();
+    const [token, setToken] = useState("");
+
+    useEffect(() => {
+        const newToken = getToken();
+        if (newToken) {
+            setToken(newToken);
+        }
+    }, []);
+
     const { t } = useTranslation();
 
     const { Dragger } = Upload;
@@ -129,22 +137,14 @@ const GalleryUpload = ({
                         color: "#ffffff",
                     }}
                     onClick={() => {
-                        isEdit
-                            ? updateGallery({
-                                  gallery: galleryObj,
-                                  setOpenUploadGallery,
-                                  setGalleryObj,
-                                  setGalleryList,
-                                  galleryList,
-                                  id,
-                              })
-                            : saveGallery({
-                                  gallery: galleryObj,
-                                  setOpenUploadGallery,
-                                  setGalleryObj,
-                                  setGalleryList,
-                                  galleryList,
-                              });
+                        saveGallery({
+                            gallery: galleryObj,
+                            setOpenUploadGallery,
+                            setGalleryObj,
+                            setGalleryList,
+                            galleryList,
+                            token,
+                        });
                     }}
                 >
                     {isEdit ? t("Update") : t("Upload")}

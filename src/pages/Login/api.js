@@ -1,3 +1,4 @@
+import { showErrorNotification } from "../../components/Notificaion";
 import { baseApiUrl } from "../../config";
 export const loginApi = ({ formData, history }) => {
     fetch(`${baseApiUrl}/login`, {
@@ -18,6 +19,7 @@ export const loginApi = ({ formData, history }) => {
             console.log("New User Data:", newUserData);
             localStorage.setItem("userData", JSON.stringify(newUserData));
             history("/dashboard");
+            showErrorNotification(newUserData?.message);
         })
         .catch((error) => {
             console.error("Error:", error);
