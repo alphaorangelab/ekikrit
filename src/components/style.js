@@ -72,8 +72,27 @@ export const StyledFooterComponent = styled.div`
         justify-content: space-between;
         padding: 20px;
 
-        @media (min-width: 768px) {
-            padding: 20px 300px;
+        @media only screen and (min-width: 1400px) {
+            padding: 10px 300px;
+        }
+        /* Large devices (992px and up) */
+        @media only screen and (min-width: 1200px) and (max-width: 1499px) {
+            padding: 10px 150px;
+        }
+
+        /* Large devices (992px and up) */
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            padding: 10px 50px;
+        }
+
+        /* Medium devices (768px and up) */
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            padding: 10px;
+        }
+
+        /* Small devices (600px and up) */
+        @media only screen and (max-width: 767px) {
+            padding: 10px;
         }
     }
 
@@ -141,6 +160,7 @@ export const PlusButton = styled.button`
 export const StyledDescription = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     h2 {
         ${"" /* text-align: center; */}
@@ -152,6 +172,13 @@ export const StyledDescription = styled.div`
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+
+        @media (max-width: 768px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     .description {

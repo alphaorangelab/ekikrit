@@ -54,21 +54,9 @@ const GalleryDetail = () => {
             ) : gallery?.imageList?.length > 0 ? (
                 <StyledGalleryContainer>
                     {gallery?.imageList.map((single) => (
-                        <div
-                            style={{
-                                border: "1px solid #dddddd",
-                                padding: "15px",
-                                borderRadius: "4px",
-                                transition: "border .2s ease-in-out",
-                                minHeight: "350px",
-                                minWidth: "400px",
-                            }}
-                            key={single?._id}
-                        >
+                        <div className="gallery-container" key={single?._id}>
                             <img
                                 src={single?.imageUrl}
-                                height={350}
-                                width={400}
                                 alt="image"
                                 // style={{ objectFit: "contain" }}
                             />

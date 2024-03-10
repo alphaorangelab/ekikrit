@@ -58,17 +58,6 @@ export const StyledNavbarComponent = styled.div`
     display: flex;
     flex-direction: column;
 
-    ${
-        "" /* background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); */
-    }
-
-    ${
-        "" /* background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%); */
-    }
-    ${
-        "" /* background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%); */
-    }
-
     .navbar-header {
         display: flex;
         flex-wrap: wrap;
@@ -77,9 +66,37 @@ export const StyledNavbarComponent = styled.div`
         padding: 10px 300px;
         justify-content: space-between;
 
-        @media (max-width: 768px) {
+        /* Extra large devices (large laptops and desktops, 1200px and up) */
+        /* Extra-large devices (1200px and up) */
+
+        @media only screen and (min-width: 1400px) {
+            padding: 10px 300px;
+            justify-content: space-between;
+        }
+        /* Large devices (992px and up) */
+        @media only screen and (min-width: 1200px) and (max-width: 1499px) {
+            padding: 10px 150px;
+            justify-content: space-between;
+        }
+
+        /* Large devices (992px and up) */
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            padding: 10px 50px;
+            justify-content: space-between;
+        }
+
+        /* Medium devices (768px and up) */
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
             padding: 10px;
             justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Small devices (600px and up) */
+        @media only screen and (max-width: 767px) {
+            padding: 10px;
+            justify-content: center;
+            flex-direction: column;
         }
     }
 
@@ -87,6 +104,7 @@ export const StyledNavbarComponent = styled.div`
         color: #027d34;
         font-size: 20px;
         font-weight: 500;
+        text-align: center;
     }
 
     .logo-container {
@@ -120,7 +138,28 @@ export const StyledNavbarComponent = styled.div`
         background: #027d33;
         padding: 10px 300px;
 
-        @media (max-width: 768px) {
+        @media only screen and (min-width: 1400px) {
+            padding: 10px 300px;
+        }
+        /* Large devices (992px and up) */
+        @media only screen and (min-width: 1200px) and (max-width: 1499px) {
+            padding: 10px 150px;
+        }
+
+        /* Large devices (992px and up) */
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            padding: 10px 50px;
+        }
+
+        /* Medium devices (768px and up) */
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Small devices (600px and up) */
+        @media only screen and (max-width: 767px) {
             padding: 10px;
         }
     }
