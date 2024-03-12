@@ -4,10 +4,12 @@ import Logo from "../../assets/Ekikrit_sahakari.png";
 import { useNavigate } from "react-router-dom";
 import { loginApi } from "./api";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 const Login = () => {
     const history = useNavigate();
     const { t } = useTranslation();
+    const [error, setError] = useState(false);
     const onFinish = (values) => {
         console.log("Success:", values);
 
@@ -16,7 +18,7 @@ const Login = () => {
             password: values?.password,
         };
 
-        loginApi({ formData, history });
+        loginApi({ formData, history, setError });
     };
     const onFinishFailed = (errorInfo) => {
         console.log("Failed:", errorInfo);
@@ -48,7 +50,7 @@ const Login = () => {
                 <img src={Logo} alt="logo" width={60} height={60} />
                 <h1 style={{ color: "#027d34", margin: "0" }}>{t("Login")}</h1>
                 <Form.Item
-                    label="Username"
+                    label={t("Username")}
                     name="username"
                     style={{ width: "100%" }}
                     rules={[
@@ -58,11 +60,11 @@ const Login = () => {
                         },
                     ]}
                 >
-                    <Input size="large" />
+                    <Input size="large" onChange={() => setError(false)} />
                 </Form.Item>
 
                 <Form.Item
-                    label="Password"
+                    label={t("Password")}
                     name="password"
                     style={{ width: "100%" }}
                     rules={[
@@ -72,8 +74,16 @@ const Login = () => {
                         },
                     ]}
                 >
-                    <Input.Password size="large" />
+                    <Input.Password
+                        size="large"
+                        onChange={() => setError(false)}
+                    />
                 </Form.Item>
+                {error && (
+                    <span style={{ color: "red" }}>
+                        {t("You entered a wrong username or password")}
+                    </span>
+                )}
 
                 <Form.Item
                     wrapperCol={{

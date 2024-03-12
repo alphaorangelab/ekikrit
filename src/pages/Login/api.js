@@ -1,6 +1,6 @@
 import { showErrorNotification } from "../../components/Notificaion";
 import { baseApiUrl } from "../../config";
-export const loginApi = ({ formData, history }) => {
+export const loginApi = ({ formData, history, setError }) => {
     fetch(`${baseApiUrl}/login`, {
         method: "POST",
         headers: {
@@ -10,6 +10,8 @@ export const loginApi = ({ formData, history }) => {
     })
         .then((response) => {
             if (!response.ok) {
+                console.log("first");
+                setError(true);
                 throw new Error("Network response was not ok");
             }
             return response.json();

@@ -22,5 +22,9 @@
     "Our Services": "हाम्रा सेवाहरू",
     "Links": "लिङ्कहरू",
     "Contact Us": "सम्पर्क गर्नुहोस",
-    "Location": "स्थान"
+    "Location": "स्थान",
+    "You entered a wrong username or password": "तपाईंले गलत प्रयोगकर्ता नाम वा पासवर्ड प्रविष्ट गर्नुभयो।",
+    "Login": "लगइन गर्नुहोस्",
+    "Username": "प्रयोगकर्ता नाम",
+    "Password": "पासवर्ड"
 }
