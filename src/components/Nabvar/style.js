@@ -137,6 +137,8 @@ export const StyledNavbarComponent = styled.div`
     .navbar-content {
         background: #027d33;
         padding: 10px 300px;
+        display: flex;
+        justify-content: space-between;
 
         @media only screen and (min-width: 1400px) {
             padding: 10px 300px;

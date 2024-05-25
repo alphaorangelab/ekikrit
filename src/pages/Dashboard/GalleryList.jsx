@@ -44,26 +44,62 @@ const GalleryList = () => {
             title: "File",
             render: (data) => (
                 <div style={{ display: "flex", gap: "5px" }}>
-                    {data?.imageList.map((single) => (
-                        <Tag
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "5px",
-                                padding: "5px",
-                            }}
-                            key={single?._id}
-                            color="blue"
-                        >
-                            <img
-                                src={single?.imageUrl}
-                                height={20}
-                                width={20}
-                                alt="image"
-                            />
-                            {single?.imageName}
-                        </Tag>
-                    ))}
+                    {data?.imageList && data?.imageList?.length > 0 ? (
+                        <>
+                            {data?.imageList.slice(0, 2).map((single) => (
+                                <Tag
+                                    style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "5px",
+                                        padding: "5px",
+                                    }}
+                                    key={single?._id}
+                                    color="blue"
+                                >
+                                    <img
+                                        src={single?.imageUrl}
+                                        height={20}
+                                        width={20}
+                                        alt="image"
+                                    />
+                                    {single?.imageName}
+                                </Tag>
+                            ))}
+                            <Tag
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "5px",
+                                    padding: "5px",
+                                }}
+                                color="blue"
+                            >
+                                +{data?.imageList?.length - 2}
+                            </Tag>
+                        </>
+                    ) : (
+                        data?.imageList.map((single) => (
+                            <Tag
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "5px",
+                                    padding: "5px",
+                                }}
+                                key={single?._id}
+                                color="blue"
+                            >
+                                <img
+                                    src={single?.imageUrl}
+                                    height={20}
+                                    width={20}
+                                    alt="image"
+                                />
+                                {single?.imageName}
+                            </Tag>
+                        ))
+                    )}
                 </div>
             ),
         },

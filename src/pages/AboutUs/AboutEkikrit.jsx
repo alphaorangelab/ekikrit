@@ -14,39 +14,21 @@ const AboutEkikrit = () => {
             <StyledAboutEkikrit>
                 <h2>{t("Introduction")}</h2>
                 <p>
-                    एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडको परिचय एकीकृत
-                    कृषक बचत तथा ऋण सहकारी संघ लिमिटेडमा स्वागत छ। हाम्रो सहकारी
-                    रत्ननगर, चितवन, नेपालमा स्थित छ र हाम्रो मुख्य उद्देश्य
-                    सवारीको अर्थात् मानसिक, सुरक्षित र स्थायी बैंकिंग र
-                    गैर-बैंकिंग सेवाहरू प्रदान गर्नु हो। हाम्रो सामुदायिक
-                    विकासका लागि माइक्रोफाइनान्स र अन्य सेवाहरूको माध्यमबाट
-                    सदस्यहरूको संयुक्त विकासको लागि हो। हाम्रो संगठन
-                    अन्तर्राष्ट्रिय सहकारी आन्दोलनका मान्यता, मूल्यहरू र
-                    सिद्धान्तहरूको पालना गर्दछ र नेपाल सरकारको सहकारी अधिनियमका
-                    नियम, तत्त्व र विधि–विधानलाई पक्षपाती रूपमा अनुसरण गर्दछ।
-                    एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडलाई पंजीकरण नम्बर
-                    ९७८/०६८/०६९ को सहकारी अधिनियम अन्तर्गत पंजीकृत गरिएको छ।
-                    हाम्रो संगठन रत्ननगर, चितवनको मात्रै मुख्य कार्यालयबाट
-                    संचालन गरिएको छ, जुन एकाग्रता र दक्षताको लागि तयार छ। एकीकृत
-                    कृषक बचत तथा ऋण सहकारी संघ लिमिटेडमा सदस्यहरूको विविध
-                    जनश्रेणीका ४८७ जनाको पूर्ण संख्या छ। हाम्रो संगठन ११
-                    कर्मचारीहरूद्वारा व्यवस्थित गरिएको छ, जसमा ७ पुरुष र ४ महिला
-                    हुन्छन्, जुन सदस्यहरूलाई उत्कृष्टता साथै परिषेबद्धतामा सेवा
-                    गर्ने कर्मचारीहरूसँग गर्दछ। हाम्रो प्रतिष्ठित सीईओ, श्री
-                    विष्णु प्रसाद आर्यालको नेतृत्वमा हाम्रो संगठन अनुभवी,
-                    समर्पित र दृष्टिबद्ध प्रबन्धन बोर्ड, प्रबन्धन, उप–समितिहरू,
-                    लेखा पर्यवेक्षण समिति र योग्य कर्मचारीहरूद्वारा चलाइएको छ।
-                    निरंतर सुधार र नवाइकरणको लागि हाम्रो संघ इन्टरनेट बैंकिङ
-                    सेवाहरू भविष्यमा ल्याउने योजना गरेको छ। तपाईंको सुविधा र
-                    सहजताका लागि, हाम्रो कार्यालयको समय शनिवारबाट शुक्रवारसम्म
-                    १०:०० बजे बाट ५:०० बजेसम्म र, शुक्रवारमा १०:०० बजे बाट ३:००
-                    बजेसम्म हुन्छ। कुनै प्रश्न वा सहायता आवश्यक भएमा कृपया
-                    हामीलाई ९७४५३५६३१० नम्बरमा सम्पर्क गर्नुहोस् वा इमेलमा
-                    ekikritkrishakekikritkrishak@gmail.com मा सम्पर्क गर्नुहोस्।
-                    एकीकृत कृषक बचत तथा ऋण सहकारी संघ लिमिटेडलाई तपाईंको आर्थिक
-                    साथीको रूपमा छनोट गर्नुको लागि धन्यवाद। हामी तपाईंलाई सेवा
-                    गर्न र तपाईंको आर्थिक कल्याण र समुदाय विकासमा सहयोग गर्न
-                    तत्पर छौं।
+                    {t(
+                        "Welcome to Ekikrit Krishak Savings and Credit Cooperative Limited. Our cooperative is located in Ratnanagar, Chitwan, Nepal, and our main objective is to provide accessible, secure, and sustainable banking and non-banking services. We aim to contribute to the community's development through microfinance and other services, fostering collective growth among our members.Our organization adheres to the principles and values of the international cooperative movement and diligently follows the regulations, principles, and laws outlined in the Cooperative Act of Nepal."
+                    )}
+
+                    <br />
+                    <br />
+                    {t(
+                        "Ekikrit Krishak' Savings and Credit Cooperative Limited is registered under registration number 978/068/069.Operated solely from our main office in Ratnanagar, Chitwan, managed by a dedicated team of eleven employees, including seven men and four women, we strive for excellence and professionalism in serving our members. Our esteemed CEO, Mr. Vishnu Prasad Aryal, leads our experienced and visionary management board, committees, audit committee, and competent staff."
+                    )}
+                    <br />
+                    <br />
+
+                    {t(
+                        "In our commitment to continuous improvement and innovation, we plan to introduce internet banking services in the future for your convenience. Our office hours are from 10:00 am to 5:00 pm, Monday to Friday, and from 10:00 am to 3:00 pm on Saturdays.If you have any questions or need assistance, please contact us at +97745356310 or email us at ekikritkrishakekikritkrishak@gmail.com. We appreciate your support as our financial partner, and we are dedicated to serving you and contributing to your economic well-being and community development."
+                    )}
                 </p>
             </StyledAboutEkikrit>
             {/* <NavbarMarquee /> */}

@@ -95,7 +95,7 @@ export const StyledCardContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 100px;
-    padding: 100px 150px;
+    padding: 120px 150px;
 
     @media (max-width: 768px) {
         padding: 10px;
@@ -115,7 +115,7 @@ export const StyledGalleryContainer = styled.div`
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 50px 150px;
+    padding: 100px 150px;
     minheight: 50vh;
 
     @media (max-width: 768px) {

@@ -1,5 +1,5 @@
-import { Popover } from "antd";
-import React from "react";
+import { Popover, Select } from "antd";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/Ekikrit_sahakari.png";
 import styled from "styled-components";
@@ -16,6 +16,8 @@ import { useTranslation } from "react-i18next";
 const NavbarComponent = () => {
     const location = useLocation();
     const { t } = useTranslation();
+
+    const [value, setValue] = useState(localStorage.getItem("language"));
 
     return (
         <StyledNavbarComponent>
@@ -45,96 +47,119 @@ const NavbarComponent = () => {
             </div>
 
             <div className="navbar-content">
-                <StyledButton
-                    key={1}
-                    isActive={
-                        location?.pathname === "/" ||
-                        location?.pathname === "/home"
-                    }
-                >
-                    <Link to={"/"}>{t("HOME")}</Link>
-                </StyledButton>
-
-                <Popover
-                    content={
-                        <StyledAboutUsContent>
-                            <Link
-                                className="content"
-                                to={"/about-ekikrit"}
-                                style={{ borderBottom: "2px solid #f5f5f5" }}
-                            >
-                                {t("About Ekikrit")}
-                            </Link>
-                            <Link className="content" to={"/teams"}>
-                                {t("Our Team")}
-                            </Link>
-                        </StyledAboutUsContent>
-                    }
-                    placement="bottomLeft"
-                    arrow={false}
-                >
+                <div>
                     <StyledButton
-                        key={2}
+                        key={1}
                         isActive={
-                            location?.pathname === "/about-ekikrit" ||
-                            location.pathname === "/teams"
+                            location?.pathname === "/" ||
+                            location?.pathname === "/home"
                         }
                     >
-                        <Link
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "3px",
-                            }}
-                        >
-                            {t("ABOUT US")} <FaChevronDown />
-                        </Link>
+                        <Link to={"/"}>{t("HOME")}</Link>
                     </StyledButton>
-                </Popover>
 
-                <Popover
-                    content={
-                        <StyledAboutUsContent>
-                            <Link
-                                className="content"
-                                to={"/loan-service"}
-                                style={{ borderBottom: "2px solid #f5f5f5" }}
-                            >
-                                {t("Loan Service")}
-                            </Link>
-                            <Link className="content" to={"/deposit-service"}>
-                                {t("Deposit Service")}
-                            </Link>
-                        </StyledAboutUsContent>
-                    }
-                    placement="bottomLeft"
-                    arrow={false}
-                >
-                    <StyledButton
-                        key={2}
-                        isActive={
-                            location?.pathname === "/loan-service" ||
-                            location?.pathname === "/deposit-service"
+                    <Popover
+                        content={
+                            <StyledAboutUsContent>
+                                <Link
+                                    className="content"
+                                    to={"/about-ekikrit"}
+                                    style={{
+                                        borderBottom: "2px solid #f5f5f5",
+                                    }}
+                                >
+                                    {t("About Ekikrit")}
+                                </Link>
+                                <Link className="content" to={"/teams"}>
+                                    {t("Our Team")}
+                                </Link>
+                            </StyledAboutUsContent>
                         }
+                        placement="bottomLeft"
+                        arrow={false}
                     >
-                        <Link
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "3px",
-                            }}
+                        <StyledButton
+                            key={2}
+                            isActive={
+                                location?.pathname === "/about-ekikrit" ||
+                                location.pathname === "/teams"
+                            }
                         >
-                            {t("SERVICES")} <FaChevronDown />
-                        </Link>
-                    </StyledButton>
-                </Popover>
+                            <Link
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "3px",
+                                }}
+                            >
+                                {t("ABOUT US")} <FaChevronDown />
+                            </Link>
+                        </StyledButton>
+                    </Popover>
 
-                <StyledButton
-                    key={4}
-                    isActive={location?.pathname === "/gallery"}
-                >
-                    <Link to={"/gallery"}>{t("GALLERY")}</Link>{" "}
-                </StyledButton>
+                    <Popover
+                        content={
+                            <StyledAboutUsContent>
+                                <Link
+                                    className="content"
+                                    to={"/loan-service"}
+                                    style={{
+                                        borderBottom: "2px solid #f5f5f5",
+                                    }}
+                                >
+                                    {t("Loan Service")}
+                                </Link>
+                                <Link
+                                    className="content"
+                                    to={"/deposit-service"}
+                                >
+                                    {t("Deposit Service")}
+                                </Link>
+                            </StyledAboutUsContent>
+                        }
+                        placement="bottomLeft"
+                        arrow={false}
+                    >
+                        <StyledButton
+                            key={2}
+                            isActive={
+                                location?.pathname === "/loan-service" ||
+                                location?.pathname === "/deposit-service"
+                            }
+                        >
+                            <Link
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "3px",
+                                }}
+                            >
+                                {t("SERVICES")} <FaChevronDown />
+                            </Link>
+                        </StyledButton>
+                    </Popover>
+
+                    <StyledButton
+                        key={4}
+                        isActive={location?.pathname === "/gallery"}
+                    >
+                        <Link to={"/gallery"}>{t("GALLERY")}</Link>{" "}
+                    </StyledButton>
+                </div>
+
+                <div style={{ width: "100px" }}>
+                    <Select
+                        style={{ width: "100%" }}
+                        onChange={(e) => {
+                            localStorage.setItem("language", e);
+                            setValue(e);
+                        }}
+                        value={value || "nep"}
+                    >
+                        <Select.Option value="nep">Nepali</Select.Option>
+                        <Select.Option value="en">English</Select.Option>
+                    </Select>
+                </div>
             </div>
         </StyledNavbarComponent>
     );

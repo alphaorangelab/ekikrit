@@ -61,6 +61,20 @@ const FooterComponent = () => {
                             <IoLocation />
                             रत्ननगर-१६, हात्तीगाडे{" "}
                         </li>
+                        <li>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d220.85546883408833!2d84.55325738523035!3d27.665138577576258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDM5JzU0LjUiTiA4NMKwMzMnMTIuMCJF!5e0!3m2!1sen!2snp!4v1716610393505!5m2!1sen!2snp"
+                                width="350"
+                                height="200"
+                                style={{
+                                    border: "none",
+                                    outline: "none",
+                                    marginTop: "5px",
+                                }}
+                                allowfullscreen=""
+                                loading="lazy"
+                            ></iframe>
+                        </li>
                     </ul>
                 </div>
             </div>

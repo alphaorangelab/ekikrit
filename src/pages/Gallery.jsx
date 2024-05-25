@@ -92,7 +92,7 @@ const Gallery = () => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        height: "50vh",
+                        height: "55vh",
                     }}
                 >
                     <div></div>
