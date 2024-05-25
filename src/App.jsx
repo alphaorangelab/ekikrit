@@ -48,13 +48,6 @@ function App() {
                 console.error("Error:", error);
             });
     }, []);
-    console.log(
-        window.location.pathname,
-        noticeObj?.notice &&
-            window.location.pathname !== "/login" &&
-            window.location.pathname !== "/dashboard",
-        "window location"
-    );
 
     return (
         <div className="app">

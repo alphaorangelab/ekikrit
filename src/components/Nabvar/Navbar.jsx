@@ -153,6 +153,7 @@ const NavbarComponent = () => {
                         onChange={(e) => {
                             localStorage.setItem("language", e);
                             setValue(e);
+                            window.location.reload();
                         }}
                         value={value || "nep"}
                     >
