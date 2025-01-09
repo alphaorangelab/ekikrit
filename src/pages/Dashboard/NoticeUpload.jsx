@@ -67,7 +67,7 @@ const NoticeUpload = () => {
 
             if (status === "done") {
                 const files = new FormData();
-                info.fileList.forEach(file => {
+                info.fileList.forEach((file) => {
                     files.append("files", file.originFileObj);
                 });
 
@@ -86,9 +86,11 @@ const NoticeUpload = () => {
                     })
                     .then((data) => {
                         // Update state with unique URLs only
-                        setNoticeObj(prev => ({
+                        setNoticeObj((prev) => ({
                             ...prev,
-                            noticeUrls: Array.from(new Set([...prev.noticeUrls, ...data.urls])),
+                            noticeUrls: Array.from(
+                                new Set([...prev.noticeUrls, ...data.urls])
+                            ),
                         }));
                     })
                     .catch((error) => {
@@ -102,9 +104,9 @@ const NoticeUpload = () => {
 
     // Remove specific notice image from the state
     const removeNotice = (urlToRemove) => {
-        setNoticeObj(prev => ({
+        setNoticeObj((prev) => ({
             ...prev,
-            noticeUrls: prev.noticeUrls.filter(url => url !== urlToRemove),
+            noticeUrls: prev.noticeUrls.filter((url) => url !== urlToRemove),
         }));
     };
 
@@ -120,7 +122,8 @@ const NoticeUpload = () => {
                         Click or drag file to this area to upload
                     </p>
                     <p className="ant-upload-hint">
-                        Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.
+                        Support for a single or bulk upload. Strictly prohibited
+                        from uploading company data or other banned files.
                     </p>
                 </Dragger>
             </div>
@@ -136,12 +139,7 @@ const NoticeUpload = () => {
                         margin: "30px 0",
                     }}
                 >
-                    <img
-                        src={url}
-                        height={200}
-                        width={200}
-                        alt="notice"
-                    />
+                    <img src={url} height={200} width={200} alt="notice" />
                     <IoCloseCircle
                         width={50}
                         height={50}
@@ -161,7 +159,13 @@ const NoticeUpload = () => {
                     }
                 />
             </div>
-            <div style={{ marginTop: "120px", display: "flex", justifyContent: "end" }}>
+            <div
+                style={{
+                    marginTop: "120px",
+                    display: "flex",
+                    justifyContent: "end",
+                }}
+            >
                 <Button
                     size="large"
                     style={{
@@ -169,14 +173,23 @@ const NoticeUpload = () => {
                         background: "#027d34",
                         color: "#ffffff",
                     }}
-                    onClick={() =>
+                    onClick={() => {
+                        console.log(
+                            {
+                                notice: noticeObj.notice,
+                                noticeUrls: noticeObj.noticeUrls,
+                                id: noticeObj.id,
+                                token,
+                            },
+                            "at the ..."
+                        );
                         saveNotice({
                             notice: noticeObj.notice,
                             noticeUrls: noticeObj.noticeUrls,
                             id: noticeObj.id,
                             token,
-                        })
-                    }
+                        });
+                    }}
                 >
                     {t("Save")}
                 </Button>

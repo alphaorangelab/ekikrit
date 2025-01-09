@@ -10,7 +10,7 @@ const Login = () => {
     const history = useNavigate();
     const { t } = useTranslation();
     const [error, setError] = useState(false);
-    
+
     const onFinish = (values) => {
         console.log("Success:", values);
 
@@ -28,11 +28,11 @@ const Login = () => {
 
     return (
         <StyledLoginContainer>
-              <div class='circle xxlarge shade1'></div>
-  <div class='circle xlarge shade2'></div>
-  <div class='circle large shade3'></div>
-  <div class='circle mediun shade4'></div>
-  <div class='circle small shade5'></div>
+            <div className="circle xxlarge shade1"></div>
+            <div className="circle xlarge shade2"></div>
+            <div className="circle large shade3"></div>
+            <div className="circle mediun shade4"></div>
+            <div className="circle small shade5"></div>
             <Form
                 name="basic"
                 style={{
@@ -55,12 +55,14 @@ const Login = () => {
                 layout="vertical"
             >
                 <img src={Logo} alt="logo" width={100} height={100} />
-                <h1 style={{ color: "#027d34", margin: "20px 0 40px 0" }}>{t("Login")}</h1> {/* Adjusted margins */}
-
+                <h1 style={{ color: "#027d34", margin: "20px 0 40px 0" }}>
+                    {t("Login")}
+                </h1>{" "}
+                {/* Adjusted margins */}
                 <Form.Item
                     label={t("Username")}
                     name="username"
-                    style={{ width: "80%" }}  // Ensures full width of the form
+                    style={{ width: "80%" }} // Ensures full width of the form
                     rules={[
                         {
                             required: true,
@@ -70,11 +72,10 @@ const Login = () => {
                 >
                     <Input size="large" onChange={() => setError(false)} />
                 </Form.Item>
-
                 <Form.Item
                     label={t("Password")}
                     name="password"
-                    style={{ width: "80%" }}  // Ensures full width of the form
+                    style={{ width: "80%" }} // Ensures full width of the form
                     rules={[
                         {
                             required: true,
@@ -82,15 +83,18 @@ const Login = () => {
                         },
                     ]}
                 >
-                    <Input.Password size="large" onChange={() => setError(false)} />
+                    <Input.Password
+                        size="large"
+                        onChange={() => setError(false)}
+                    />
                 </Form.Item>
-
                 {error && (
-                    <span style={{ color: "red", marginBottom: "20px" }}> {/* Added margin */}
+                    <span style={{ color: "red", marginBottom: "20px" }}>
+                        {" "}
+                        {/* Added margin */}
                         {t("You entered a wrong username or password")}
                     </span>
                 )}
-
                 <Form.Item
                     wrapperCol={{
                         span: 24,
@@ -99,7 +103,7 @@ const Login = () => {
                         width: "80%", // Full width of the form
                         justifyContent: "center", // Center the button
                         marginTop: "0px", // Adjust margin
-                        margingBottom: "0px"
+                        margingBottom: "0px",
                     }}
                 >
                     <Button
@@ -114,13 +118,16 @@ const Login = () => {
                             height: "48px", // Optional: if you want a specific button height
                         }}
                         size="large"
-                        >
+                    >
                         {t("Login")}
                     </Button>
                 </Form.Item>
             </Form>
             <footer>
-                <p>&copy; Ekikrit Krishak Savings & Credit Co. Ltd. All rights reserved.</p>
+                <p>
+                    &copy; Ekikrit Krishak Savings & Credit Co. Ltd. All rights
+                    reserved.
+                </p>
             </footer>
         </StyledLoginContainer>
     );

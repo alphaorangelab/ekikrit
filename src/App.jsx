@@ -40,7 +40,7 @@ function App() {
                 setNoticeObj({
                     ...noticeObj,
                     notice: newUserData[0].notice,
-                    noticeUrl: newUserData[0].noticeUrl,
+                    noticeUrl: newUserData?.[0].noticeUrls?.[0],
                 });
                 console.log("New User Data:", newUserData);
             })
@@ -80,9 +80,8 @@ function App() {
                 width={600}
                 closeIcon={<IoCloseCircle color="red" size={40} />}
                 onCancel={() => setNoticeObj(false)}
-                
             >
-                <div style={{ width: "100%", height: "100%"}}>
+                <div style={{ width: "100%", height: "100%" }}>
                     <img
                         src={noticeObj?.noticeUrl}
                         height="100%"

@@ -39,14 +39,15 @@ export const uploadFileApi = ({ formData, token }) => {
         });
 };
 
-export const saveNotice = ({ notice, id, token }) => {
+export const saveNotice = ({ notice, id, token, noticeUrls }) => {
+    console.log(notice, "notice at save data");
     fetch(`${baseApiUrl}/notice/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
             Authorization: token,
         },
-        body: JSON.stringify(notice),
+        body: JSON.stringify({ notice, noticeUrls }),
     })
         .then((response) => {
             if (!response.ok) {
