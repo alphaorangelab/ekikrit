@@ -120,6 +120,16 @@ export const StyledNavbarComponent = styled.div`
 
         .logo {
             width: 400px;
+
+            /* Medium devices (768px and up) */
+            @media only screen and (min-width: 768px) and (max-width: 991px) {
+                width: 365px;
+            }
+
+            /* Small devices (600px and up) */
+            @media only screen and (max-width: 767px) {
+                width: 365px;
+            }
         }
 
         .logo-text {

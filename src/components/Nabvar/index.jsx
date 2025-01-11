@@ -1,44 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/Ekikrit_sahakari.png";
 
 import { StyledAboutUsContent, StyledButton, StyledNavbar } from "./style";
 import { Popover } from "antd";
 import { useTranslation } from "react-i18next";
+import { MenuOutlined } from "@ant-design/icons"; // Ant Design menu icon
+import "./Navbar.css"; // Import custom CSS for the sliding menu
 
-const drawerWidth = 240;
-
-function Navbar(props) {
-    // const { window } = props;
-    // const [mobileOpen, setMobileOpen] = React.useState(false);
-
-    // const handleDrawerToggle = () => {
-    //     setMobileOpen((prevState) => !prevState);
-    // };
-
-    const [anchorEl, setAnchorEl] = React.useState(null);
-
+function Navbar() {
+    const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation();
-    console.log(location, "location at the ..");
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
     const { t } = useTranslation();
 
-    // const handleClose = () => {
-    //     setAnchorEl(null);
-    // };
+    const toggleMenu = () => {
+        setMenuOpen((prevState) => !prevState);
+    };
 
-    const open = Boolean(anchorEl);
-    const id = open ? "simple-popover" : undefined;
-
-    // const container =
-    //     window !== undefined ? () => window().document.body : undefined;
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
 
     return (
         <div>
-            {/* <CssBaseline /> */}
             <StyledNavbar>
                 <div
                     style={{
@@ -60,9 +44,21 @@ function Navbar(props) {
                         <span>{t("Ekikrit Krishak")}</span>
                         <span>{t("Savings & Credit")}</span>
                     </div>
+                    {/* Hamburger icon for mobile */}
+                    <MenuOutlined
+                        className="hamburger-icon"
+                        onClick={toggleMenu}
+                        style={{
+                            fontSize: "24px",
+                            color: "#027d34",
+                            cursor: "pointer",
+                            display: "none", // Hidden on desktop
+                        }}
+                    />
                 </div>
 
-                <div>
+                {/* Main menu for desktop */}
+                <div className="desktop-menu">
                     <StyledButton
                         key={1}
                         isActive={
@@ -72,7 +68,6 @@ function Navbar(props) {
                     >
                         <Link to={"/"}>Home</Link>
                     </StyledButton>
-
                     <Popover
                         content={
                             <StyledAboutUsContent>
@@ -83,9 +78,6 @@ function Navbar(props) {
                         }
                         placement="bottom"
                         arrow={false}
-                        // trigger="click"
-                        // open={true}
-                        // onOpenChange={handleOpenChange}
                     >
                         <StyledButton
                             key={2}
@@ -94,7 +86,6 @@ function Navbar(props) {
                             <Link>About Us</Link>
                         </StyledButton>
                     </Popover>
-
                     <StyledButton
                         key={3}
                         isActive={location?.pathname === "/news"}
@@ -105,8 +96,29 @@ function Navbar(props) {
                         key={4}
                         isActive={location?.pathname === "/gallery"}
                     >
-                        <Link to={"/gallery"}>Gallery</Link>{" "}
+                        <Link to={"/gallery"}>Gallery</Link>
                     </StyledButton>
+                </div>
+
+                {/* Sliding menu for mobile */}
+                <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+                    <div className="mobile-menu-content">
+                        <button className="close-button" onClick={closeMenu}>
+                            ✕
+                        </button>
+                        <Link to="/" onClick={closeMenu}>
+                            Home
+                        </Link>
+                        <Link to="/about-ekikrit" onClick={closeMenu}>
+                            About Ekikrit
+                        </Link>
+                        <Link to="/news" onClick={closeMenu}>
+                            News
+                        </Link>
+                        <Link to="/gallery" onClick={closeMenu}>
+                            Gallery
+                        </Link>
+                    </div>
                 </div>
             </StyledNavbar>
         </div>

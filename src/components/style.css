@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+    .carousel {
+        .ant-carousel .slick-slide {
+            height: auto;
+        }
+        .ant-carousel .slick-list {
+            height: 300px;
+        }
+        .ant-carousel .slick-slide img {
+            width: 100%; /* Ensure the image fills horizontally */
+            height: 100%; /* Maintain consistent height */
+            max-height: 300px; /* Prevent exceeding the set height */
+            object-fit: cover;
+        }
+    }
+}
