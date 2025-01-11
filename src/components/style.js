@@ -177,54 +177,71 @@ export const PlusButton = styled.button`
 `;
 
 export const ChairmanMessageStyle = styled.div`
-    .container {
-        background-color: #f9f9f9;
-    }
+  .container {
+    background-color: #f9f9f9;
+  }
 
-    .message-ceo-section {
-        padding: 50px 0;
-        margin: 0 auto;
-        width: 70%;
-        box-sizing: border-box;
-    }
-
-    .row {
-        display: flex;
-        gap: 20px;
-    }
-
-    .message-ceo-section h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .message-ceo-section p {
-        font-size: 16px;
-        line-height: 1.8;
-    }
-
-    .chairman-img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-        border-bottom: 3px solid green;
-        display: inline;
-    }
+  .message-ceo-section {
+    padding: 50px 0;
+    margin: 0 auto;
+    width: 70%;
+    box-sizing: border-box;
 
     @media (max-width: 768px) {
-        .message-ceo-section .col-lg-6, 
-        .message-ceo-section .col-md-6 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      width: 90%; /* Adjust width for smaller screens */
     }
+  }
 
+  .row {
+    display: flex;
+    gap: 20px;
 
+    @media (max-width: 768px) {
+      flex-direction: column; /* Stack columns vertically */
+      align-items: center; /* Center items */
+    }
+  }
+
+  .message-ceo-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      text-align: center; /* Center align heading */
+      font-size: 20px; /* Adjust font size */
+    }
+  }
+
+  .message-ceo-section p {
+    font-size: 16px;
+    line-height: 1.8;
+
+    @media (max-width: 768px) {
+      font-size: 14px; /* Adjust font size for mobile */
+      text-align: center; /* Center align text */
+    }
+  }
+
+  .chairman-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+      margin-top: 20px; /* Add spacing above image */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .message-ceo-section .col-lg-6,
+    .message-ceo-section .col-md-6 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
 `;
+
 
 export const StyledDescription = styled.div`
     display: flex;
@@ -236,26 +253,23 @@ export const StyledDescription = styled.div`
         border-bottom: 3px solid green;
         display: inline-block !important;
         align-self: flex-start;
-    }
 
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
+        @media (max-width: 768px) {
+            text-align: center; /* Center align heading on smaller screens */
+            font-size: 22px; /* Adjust font size for mobile */
+        }
     }
 
     .about-container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-    }
 
         @media (max-width: 768px) {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column; /* Stack content vertically */
             align-items: center;
+            gap: 20px; /* Add spacing between sections */
         }
     }
 
@@ -265,12 +279,27 @@ export const StyledDescription = styled.div`
         margin-bottom: 20px;
 
         @media (min-width: 768px) {
-            width: 60%; /* Adjust the width based on your preference */
+            width: 60%; /* Maintain width for larger screens */
+        }
+
+        @media (max-width: 768px) {
+            width: 90%; /* Reduce width for smaller screens */
+            font-size: 14px; /* Adjust font size for readability */
         }
     }
 
     .logo-container {
         flex-shrink: 0; /* Prevent the logo from shrinking */
-        margin-top: ; /* Add some spacing */
+        margin-top: 20px; /* Add spacing above logo */
+        text-align: center;
+
+        img {
+            max-width: 100%; /* Ensure image is responsive */
+            height: auto; /* Maintain aspect ratio */
+
+            @media (max-width: 768px) {
+                max-width: 80%; /* Adjust image size for smaller screens */
+            }
+        }
     }
 `;
