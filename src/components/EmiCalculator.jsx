@@ -29,7 +29,9 @@ const EMICalculator = () => {
         const n = parseInt(term); // Term in months
         const p = parseFloat(loanAmount); // Principal loan amount
 
-        const emiValue = p * r * (Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1));
+        // const emiValue = p * r * (Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1));
+        const emiValue =
+            (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
         setEmi(emiValue.toFixed(2));
     };
 
@@ -189,7 +191,11 @@ const EMICalculator = () => {
                         onMouseEnter={() => setHovered(1)}
                         onMouseLeave={() => setHovered(null)}
                     >
-                        <img src={loanIcon} alt="Loan Icon" style={styles.imageIcon} />
+                        <img
+                            src={loanIcon}
+                            alt="Loan Icon"
+                            style={styles.imageIcon}
+                        />
                         <div style={styles.textContainer}>
                             <h3 style={styles.header}>Loan Amount</h3>
                             <p style={styles.resultText}>
@@ -202,7 +208,11 @@ const EMICalculator = () => {
                         onMouseEnter={() => setHovered(2)}
                         onMouseLeave={() => setHovered(null)}
                     >
-                        <img src={interestIcon} alt="Interest Icon" style={styles.imageIcon} />
+                        <img
+                            src={interestIcon}
+                            alt="Interest Icon"
+                            style={styles.imageIcon}
+                        />
                         <div style={styles.textContainer}>
                             <h3 style={styles.header}>Interest Rate</h3>
                             <p style={styles.resultText}>

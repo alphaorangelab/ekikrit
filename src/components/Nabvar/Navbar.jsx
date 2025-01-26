@@ -57,7 +57,7 @@ const NavbarComponent = () => {
                         </a>
                     </span>
                     <span>
-                        <FiMail /> EkikritKrishaksacop@gmail.com
+                        <FiMail /> ekikritkrishakekikritkrishak@gmail.com
                     </span>
                 </div>
             </div>
@@ -213,7 +213,7 @@ const NavbarComponent = () => {
                 </div>
 
                 {/* Mobile Hamburger Menu */}
-                <div className="hamburger-menu-icon" onClick={toggleMenu} >
+                <div className="hamburger-menu-icon" onClick={toggleMenu}>
                     {menuOpen ? <FiX /> : <FiMenu />}
                 </div>
             </div>

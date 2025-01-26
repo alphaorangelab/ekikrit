@@ -13,6 +13,7 @@ import EMICalculator from "../components/EmiCalculator";
 import { profileCardData } from "../components/helper";
 import { StyledContainer } from "./style";
 import backgroundImage from "../assets/profile-bg.png";
+import chairmanImage from "../assets/chairman.png"; // Path to the chairman image
 
 export default function HomePage() {
     const { t } = useTranslation();
@@ -28,10 +29,22 @@ export default function HomePage() {
             <StyledContainer>
                 {/* Carousel Component - No Animation */}
                 <div className="carousel-container">
-                    <CarouselComponent />
+                    <ChairmanMessage
+                        title="Message from the Chairman"
+                        chairmanName="John Doe"
+                        message="Welcome to Ekikrit Krishak Savings and Credit Cooperative Limited. Our cooperative is dedicated to offering secure, accessible, and sustainable banking services to the local community. We strive to enhance the economic well-being of our members by fostering collective growth through microfinance initiatives. As Chairman, I encourage all of us to work together for the future of our community."
+                        chairmanImageSrc={chairmanImage}
+                    />
                 </div>
 
-                <ChairmanMessage />
+                <div className="carousel-container">
+                    <ChairmanMessage
+                        title="Message from the Vice Chairman"
+                        chairmanName="John Doe"
+                        message="Welcome to Ekikrit Krishak Savings and Credit Cooperative Limited. Our cooperative is dedicated to offering secure, accessible, and sustainable banking services to the local community. We strive to enhance the economic well-being of our members by fostering collective growth through microfinance initiatives. As Chairman, I encourage all of us to work together for the future of our community."
+                        chairmanImageSrc={chairmanImage}
+                    />
+                </div>
 
                 {/* Company Description - Fade in from the left */}
                 <div
@@ -73,6 +86,7 @@ export default function HomePage() {
                             boxSizing: "border-box",
                             position: "relative",
                             zIndex: 1,
+                            marginBottom: "20px",
                         }}
                         data-aos="fade-right" // Fade right for institutional profile
                         data-aos-delay="400" // Delay for staggered animation

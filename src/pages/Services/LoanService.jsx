@@ -13,15 +13,18 @@ const LoanService = () => {
             <StyledComponent>
                 <h2>{t("Loan Services")}</h2>
                 <ol>
-                    <li>घर-घडेरी कर्जा (Home and Land Loan)</li>
-                    <li>बैदेशिक राेजगारी कर्जा (Foreigner Employment Loan)</li>
-                    <li>लघु कर्जा</li>
+                    {" "}
+                    <li>व्यवसाय कर्जा (Business Loan)</li>{" "}
+                    <li>कृषि कर्जा (Agricultural Loan)</li>{" "}
+                    <li>घर-घडेरी कर्जा (Home and Land Loan)</li>{" "}
                     <li>
-                        बैक व्यालेन्स कर्जा तथा भिसा प्रकृया कर्जा (Bank Balance
-                        and Visa Processing Loan)
-                    </li>
-                    <li>सामूहिक जमानी कर्जा</li>
-                    <li>सवारी-साधन कर्जा (Vehicle Loan)</li>
+                        सम्पत्ति तथा घर निर्माण कर्जा (Property and House
+                        Construction Loan)
+                    </li>{" "}
+                    <li>शिक्षा कर्जा (Education Loan)</li>{" "}
+                    <li>स्थिर कर्जा (Fixed Loan)</li>{" "}
+                    <li>विदेश रोजगार कर्जा (Abroad Working Loan)</li>{" "}
+                    <li>बिरामी कर्जा (Birami Loan)</li>{" "}
                 </ol>
             </StyledComponent>
             <FooterComponent />

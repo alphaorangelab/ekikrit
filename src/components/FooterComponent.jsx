@@ -50,7 +50,7 @@ const FooterComponent = () => {
                         <li className="content">
                             {" "}
                             <FiMail />
-                            EkikritKrishaksacop@gmail.com
+                            ekikritkrishakekikritkrishak@gmail.com
                         </li>
                     </ul>
                 </div>
@@ -79,7 +79,7 @@ const FooterComponent = () => {
                 </div>
             </div>
             <div className="footer-copyright">
-                © 2023 Ekikrit Krishak Credit and Savings Coop
+                © 2025 Ekikrit Krishak Credit and Savings Coop
             </div>
         </StyledFooterComponent>
     );
