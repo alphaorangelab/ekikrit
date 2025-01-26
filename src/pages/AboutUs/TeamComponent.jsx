@@ -1,7 +1,6 @@
 import { StyledTeamComponent } from "./style";
 
 const TeamComponent = ({ team }) => {
-    console.log(team);
     return (
         <StyledTeamComponent>
             <div className="member-profile">
@@ -10,6 +9,7 @@ const TeamComponent = ({ team }) => {
                     height={"300"}
                     width={"300"}
                     alt="member"
+                    style={{ borderRadius: "50%" }}
                 />
             </div>
             <div className="member-name">{team?.name}</div>

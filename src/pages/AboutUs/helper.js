@@ -1,31 +1,31 @@
 import pic2 from "../../assets/user-2.png";
 import pic3 from "../../assets/user-3.png";
-import pic4 from "../../assets/user-4.png";
-import pic5 from "../../assets/user-5.png";
+import sitanepal from "../../assets/sitanepal.jpg";
+import rameshnepal from "../../assets/rameshnepal.jpg";
 
 export const teamList = [
     {
         key: 1,
         profile: pic2,
-        name: "Chairman 1",
-        role: "Chairman",
+        name: "Shiva Ram Nepal",
+        role: "Vice Chairperson",
     },
     {
         key: 2,
         profile: pic3,
-        name: "Chairman 2",
-        role: "Vice Chairman",
+        name: "Shiva Pudasaini",
+        role: "Secretary",
     },
     {
         key: 3,
-        profile: pic4,
-        name: "Chairman 3",
-        role: "Secretary",
+        profile: rameshnepal,
+        name: "Ramesh Kunwar",
+        role: "Manager",
     },
     {
         key: 4,
-        profile: pic5,
-        name: "Chairman 4",
-        role: "Secretary",
+        profile: sitanepal,
+        name: "Sita Nepal",
+        role: "Treasurer",
     },
 ];

@@ -8,7 +8,7 @@ const NavbarMarquee = () => {
             <div className="marquee-container">
                 <div className="marquee-content">
                     भविष्य सुनिश्चित पार्नको लागि बचत गर्ने बानी बसालौँ।। भविष्य
-                    सुनिश्चित पार्नको लागि बचत गर्ने बानी बसालौँ।। 
+                    सुनिश्चित पार्नको लागि बचत गर्ने बानी बसालौँ।।
                 </div>
             </div>
             {/* <div className="contacts">
@@ -18,7 +18,7 @@ const NavbarMarquee = () => {
                 </span>
                 <span className="content">
                     <FiMail />
-                    EkikritKrishaksacop@gmail.com
+                    ekikritkrishakekikritkrishak@gmail.com
                 </span>
             </div> */}
         </StyledNavbarMarquee>

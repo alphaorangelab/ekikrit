@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 const OurTeams = () => {
     const mainItem = {
         profile: user1,
-        name: "Hari Ram Basnet",
+        name: "Bishnu Parsad Aryal",
         role: "Chairman",
     };
     const { t } = useTranslation();
