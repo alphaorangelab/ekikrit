@@ -29,6 +29,7 @@ export default function HomePage() {
             <StyledContainer>
                 {/* Carousel Component - No Animation */}
                 <div className="carousel-container">
+                    <CarouselComponent />
                     <ChairmanMessage
                         title="Message from the Chairman"
                         chairmanName="John Doe"
