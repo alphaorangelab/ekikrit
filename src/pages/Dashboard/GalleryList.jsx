@@ -6,20 +6,17 @@ import { baseApiUrl } from "../../config";
 import { getToken } from "../../localStorage";
 
 const GalleryList = () => {
-    // const { token } = userData;
-
     const [galleryList, setGalleryList] = useState([]);
     const [openModal, setOpenModal] = useState(false);
     const [openUploadGallery, setOpenUploadGallery] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [selectedId, setSelectedId] = useState();
+    const [selectedId, setSelectedId] = useState(null);
     const [isEdit, setIsEdit] = useState(false);
     const [galleryObj, setGalleryObj] = useState({
         title: "",
         description: "",
         imageList: [],
     });
-
     const [token, setToken] = useState("");
 
     useEffect(() => {
@@ -28,8 +25,6 @@ const GalleryList = () => {
             setToken(newToken);
         }
     }, []);
-
-    console.log(galleryList, "gallery list");
 
     const columns = [
         {
@@ -48,14 +43,14 @@ const GalleryList = () => {
                         <>
                             {data?.imageList.slice(0, 2).map((single) => (
                                 <Tag
+                                    key={single?._id}
+                                    color="blue"
                                     style={{
                                         display: "flex",
                                         alignItems: "center",
                                         gap: "5px",
                                         padding: "5px",
                                     }}
-                                    key={single?._id}
-                                    color="blue"
                                 >
                                     <img
                                         src={single?.imageUrl}
@@ -66,61 +61,43 @@ const GalleryList = () => {
                                     {single?.imageName}
                                 </Tag>
                             ))}
-                            <Tag
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "5px",
-                                    padding: "5px",
-                                }}
-                                color="blue"
-                            >
-                                +{data?.imageList?.length - 2}
-                            </Tag>
+                            {data?.imageList?.length > 2 && (
+                                <Tag
+                                    style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "5px",
+                                        padding: "5px",
+                                    }}
+                                    color="blue"
+                                >
+                                    + {data?.imageList?.length - 1}
+                                </Tag>
+                            )}
                         </>
                     ) : (
-                        data?.imageList.map((single) => (
-                            <Tag
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "5px",
-                                    padding: "5px",
-                                }}
-                                key={single?._id}
-                                color="blue"
-                            >
-                                <img
-                                    src={single?.imageUrl}
-                                    height={20}
-                                    width={20}
-                                    alt="image"
-                                />
-                                {single?.imageName}
-                            </Tag>
-                        ))
+                        <span>-</span>
                     )}
                 </div>
             ),
         },
-
         {
             title: "Action",
             render: (data) => (
                 <Space size="middle">
-                    {/* <Button
+                    <Button
                         onClick={() => {
-                            setOpenUploadGallery(true);
+                            setIsEdit(true); // Enable editing
                             setSelectedId(data?._id);
+                            setOpenUploadGallery(true); // Open upload modal
                         }}
                         type="primary"
                     >
                         Edit
-                    </Button> */}
+                    </Button>
                     <Button
                         onClick={() => {
                             setOpenModal(true);
-                            // setIsEdit(true);
                             setSelectedId(data?._id);
                         }}
                         danger
@@ -131,6 +108,8 @@ const GalleryList = () => {
             ),
         },
     ];
+
+    // Fetch gallery list on initial load
     useEffect(() => {
         fetch(`${baseApiUrl}/gallery`, {
             method: "GET",
@@ -139,22 +118,10 @@ const GalleryList = () => {
                 Authorization: token,
             },
         })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                // Process the newly created user data
-
-                console.log("New User Data:", data);
-                setGalleryList(data?.galleryList);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
-    }, []);
+            .then((response) => response.json())
+            .then((data) => setGalleryList(data?.galleryList))
+            .catch((error) => console.error("Error:", error));
+    }, [token]);
 
     const deleteGallery = ({ id }) => {
         fetch(`${baseApiUrl}/gallery/${id}`, {
@@ -164,48 +131,33 @@ const GalleryList = () => {
                 Authorization: token,
             },
         })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
+            .then((response) => response.json())
             .then((data) => {
-                // Process the newly created user data
                 setOpenModal(false);
                 setGalleryList(
                     galleryList.filter(
-                        (single) =>
-                            single?._id !== data?.deletedGalleryItem?._id
+                        (item) => item._id !== data?.deletedGalleryItem?._id
                     )
                 );
-                console.log(data, "Data");
-                // localStorage.setItem("userData", JSON.stringify(newUserData));
             })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+            .catch((error) => console.error("Error:", error));
     };
 
+    // Fetch gallery data for editing
     useEffect(() => {
-        setLoading(true);
-        if (openUploadGallery) {
+        if (openUploadGallery && isEdit) {
+            setLoading(true);
             fetch(`${baseApiUrl}/gallery/${selectedId}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: token,
                 },
             })
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json();
-                })
+                .then((response) => response.json())
                 .then((data) => {
-                    console.log(data);
-                    // Process the newly created user data
                     setGalleryObj({
+                        id: selectedId,
                         title: data?.gallery?.title,
                         description: data?.gallery?.description,
                         imageList: data?.gallery?.imageList,
@@ -213,11 +165,19 @@ const GalleryList = () => {
                     setLoading(false);
                 })
                 .catch((error) => {
-                    console.error("Error:", error);
                     setLoading(false);
+                    console.error("Error:", error);
                 });
         }
-    }, [openUploadGallery]);
+    }, [openUploadGallery, isEdit, selectedId, token]);
+
+    // Update the gallery in the list after editing
+    const updateGalleryList = (updatedGallery) => {
+        const updatedList = galleryList.map((item) =>
+            item._id === updatedGallery._id ? updatedGallery : item
+        );
+        setGalleryList(updatedList);
+    };
 
     return (
         <>
@@ -225,42 +185,47 @@ const GalleryList = () => {
             <FloatingBtn
                 tooltipTitle={"Upload Gallery"}
                 onClick={() => {
+                    setIsEdit(false); // Set to false for new gallery
+                    setSelectedId(null);
+                    setGalleryObj({
+                        title: "",
+                        description: "",
+                        imageList: [],
+                    });
                     setOpenUploadGallery(true);
-                    setIsEdit(false);
                 }}
             />
             <Modal
                 open={openModal}
                 centered
                 title="Delete Confirmation"
-                children="Do you want to delete?"
                 destroyOnClose
                 okText="Delete"
                 okButtonProps={{ style: { background: "red" } }}
                 onCancel={() => setOpenModal(false)}
-                onOk={() => {
-                    deleteGallery({ id: selectedId });
-                }}
-            />
+                onOk={() => deleteGallery({ id: selectedId })}
+            >
+                Do you want to delete?
+            </Modal>
             <Modal
                 open={openUploadGallery}
                 centered
                 footer={null}
                 destroyOnClose
-                children={
-                    <GalleryUpload
-                        setOpenUploadGallery={setOpenUploadGallery}
-                        setGalleryList={setGalleryList}
-                        galleryList={galleryList}
-                        galleryObj={galleryObj}
-                        setGalleryObj={setGalleryObj}
-                        // isEdit={isEdit}
-                        // setIsEdit={setIsEdit}
-                        id={selectedId}
-                    />
-                }
                 onCancel={() => setOpenUploadGallery(false)}
-            />
+            >
+                <GalleryUpload
+                    setOpenUploadGallery={setOpenUploadGallery}
+                    setGalleryList={setGalleryList}
+                    galleryList={galleryList}
+                    galleryObj={galleryObj}
+                    setGalleryObj={setGalleryObj}
+                    isEdit={isEdit}
+                    setIsEdit={setIsEdit}
+                    id={selectedId}
+                    updateGalleryList={updateGalleryList}
+                />
+            </Modal>
         </>
     );
 };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, message, Switch, Upload } from "antd";
+import { Button, message, Switch, Tooltip, Upload } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import { StyledNewsUpload } from "./style";
 import { dummyRequest } from "../../helper";
@@ -8,6 +8,7 @@ import { IoCloseCircle } from "react-icons/io5";
 import { baseApiUrl } from "../../config";
 import { useTranslation } from "react-i18next";
 import { getToken } from "../../localStorage";
+import { ImCross } from "react-icons/im";
 
 const NoticeUpload = () => {
     const [token, setToken] = useState("");
@@ -137,20 +138,35 @@ const NoticeUpload = () => {
                         gap: "10px",
                         width: "220px",
                         margin: "30px 0",
+                        position: "relative", // Added for positioning
                     }}
                 >
                     <img src={url} height={200} width={200} alt="notice" />
-                    <IoCloseCircle
-                        width={50}
-                        height={50}
-                        color="red"
-                        style={{ cursor: "pointer" }}
-                        onClick={() => removeNotice(url)}
-                    />
+
+                    <Tooltip title="Remove">
+                        <ImCross
+                            width={100} // Adjusted size
+                            height={100} // Adjusted size
+                            color="red"
+                            style={{
+                                cursor: "pointer",
+                                position: "absolute", // Position it absolutely
+                                top: "0px", // Adjust as needed
+                                right: "0px", // Adjust as needed
+                            }}
+                            onClick={() => removeNotice(url)}
+                        />
+                    </Tooltip>
                 </div>
             ))}
 
-            <div>
+            <div
+                style={{
+                    display: "flex",
+                    gap: "10px",
+                    alignItems: "center",
+                }}
+            >
                 <h2>Enable Notice</h2>
                 <Switch
                     checked={noticeObj.notice}

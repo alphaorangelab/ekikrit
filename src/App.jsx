@@ -80,6 +80,7 @@ function App() {
                 width={600}
                 closeIcon={<IoCloseCircle color="red" size={40} />}
                 onCancel={() => setNoticeObj(false)}
+                centered
             >
                 <div style={{ width: "100%", height: "100%" }}>
                     <img

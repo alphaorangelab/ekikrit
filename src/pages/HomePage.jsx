@@ -18,9 +18,13 @@ import chairmanImage from "../assets/chairman.png"; // Path to the chairman imag
 export default function HomePage() {
     const { t } = useTranslation();
 
-    // Initialize AOS on component mount
+    // Initialize AOS with responsive handling
     useEffect(() => {
-        AOS.init({ duration: 1000, once: true }); // AOS with duration and once option
+        if (window.innerWidth > 768) {
+            AOS.init({ duration: 1000, once: true });
+        } else {
+            AOS.init({ disable: true }); // Disable AOS on small screens
+        }
     }, []);
 
     return (
@@ -67,7 +71,6 @@ export default function HomePage() {
                         position: "relative",
                     }}
                 >
-                    {/* Overlay */}
                     <div
                         style={{
                             position: "absolute",
@@ -75,8 +78,8 @@ export default function HomePage() {
                             left: 0,
                             right: 0,
                             bottom: 0,
-                            backgroundColor: "rgba(0, 0, 0, 0.03)", // Black overlay with 50% opacity
-                            zIndex: 0, // Ensure overlay is above the background image
+                            backgroundColor: "rgba(0, 0, 0, 0.03)",
+                            zIndex: 0,
                         }}
                     />
                     <div
@@ -89,8 +92,8 @@ export default function HomePage() {
                             zIndex: 1,
                             marginBottom: "20px",
                         }}
-                        data-aos="fade-right" // Fade right for institutional profile
-                        data-aos-delay="400" // Delay for staggered animation
+                        data-aos="fade-right"
+                        data-aos-delay="400"
                     >
                         <h2>{t("Institutional Profile")}</h2>
                         <div

@@ -141,14 +141,17 @@ export const updateGallery = ({
         })
         .then((data) => {
             // Process the newly created user data
-            console.log(data, "Data");
             setOpenUploadGallery(false);
             const obj = {
                 title: data?.gallery?.title,
                 description: data?.gallery?.description,
                 imageList: data?.gallery?.imageList,
             };
-            setGalleryList([...galleryList, obj]);
+            setGalleryList(
+                galleryList.map((item) =>
+                    item._id === data?.gallery?._id ? { ...item, ...obj } : item
+                )
+            );
             setGalleryObj({
                 title: "",
                 description: "",
