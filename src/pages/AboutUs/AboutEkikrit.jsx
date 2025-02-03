@@ -1,7 +1,4 @@
-import React from "react";
 import { StyledAboutEkikrit } from "./style";
-import NavbarMarquee from "../../components/NavbarMarquee";
-import Navbar from "../../components/Nabvar";
 import FooterComponent from "../../components/FooterComponent";
 import NavbarComponent from "../../components/Nabvar/Navbar";
 import { useTranslation } from "react-i18next";
@@ -15,20 +12,15 @@ const AboutEkikrit = () => {
                 <h2>{t("Introduction")}</h2>
                 <p>
                     {t(
-                        "Welcome to Ekikrit Krishak Savings and Credit Cooperative Limited. Our cooperative is located in Ratnanagar, Chitwan, Nepal, and our main objective is to provide accessible, secure, and sustainable banking and non-banking services. We aim to contribute to the community's development through microfinance and other services, fostering collective growth among our members.Our organization adheres to the principles and values of the international cooperative movement and diligently follows the regulations, principles, and laws outlined in the Cooperative Act of Nepal."
+                        "Farmers residing in the former Pithuwa-1, currently Ratnanagar Municipality-16, Chitwan district, gathered with the objective of saving money for unforeseen expenses, achieving financial growth, and improving their living standards. Their broader vision was to make the entire Ratnanagar, Kalika, and Khairahani municipalities self-sufficient and prosperous. With this goal in mind, on the 10th of Bhadra, 2055 (B.S.), the 'Shree Bhadrakali Farmers Group' was established under the leadership of then-chairman Bishnu Prasad Aryal. An 11-member executive committee was formed, and it was decided to collect a monthly savings of NPR 10 per member. Gradually, the number of members increased rapidly. After some time, the District Development Committee (DDC) initiated the PEDP program in various Village Development Committees (VDCs). Under this program, our group was officially registered as the 'Chitwan Farmers Community Institution,' replacing the previous name, and we continued our operations under the PEDP program. Over time, the local people’s warmth and enthusiasm for the institution grew significantly, leading to an increase in membership. Dear fellow members, when we started this institution, our monthly savings began at NPR 10. Over time, we increased it to NPR 20, 30, 50, and 100, and today, we have successfully reached a monthly savings of NPR 1,000. Looking back at our journey, we can clearly see that our lives have undergone a significant transformation."
                     )}
-
                     <br />
                     <br />
                     {t(
-                        "Ekikrit Krishak' Savings and Credit Cooperative Limited is registered under registration number 978/068/069.Operated solely from our main office in Ratnanagar, Chitwan, managed by a dedicated team of eleven employees, including seven men and four women, we strive for excellence and professionalism in serving our members. Our esteemed CEO, Mr. Vishnu Prasad Aryal, leads our experienced and visionary management board, committees, audit committee, and competent staff."
+                        "As time passed, our savings amount continued to grow. Realizing the need to secure and safeguard our members' savings, we concluded that transitioning to a cooperative model was necessary. With this decision, the Chitwan Farmers Community Institution underwent its third name change and was renamed Integrated Farmers Savings and Credit Cooperative Institution. On 23rd Bhadra, 2068 B.S., the institution was officially registered as a savings and credit cooperative under registration number 978 at the District Cooperative Division and Training Office. Upon registration, we received one copy of the statute and one copy of the loan policy under the savings and credit cooperative framework. Over time, we have amended these documents as needed through the general assembly to keep them relevant to changing circumstances."
                     )}
                     <br />
                     <br />
-
-                    {t(
-                       "In our commitment to continuous improvement and innovation, we plan to introduce internet banking services in the future for your convenience. Our office hours are from 10:00 am to 5:00 pm, Monday to Thursday, and from 10:00 am to 3:00 pm on Friday.If you have any questions or need assistance, please contact us at +97745356310 or email us at ekikritkrishakekikritkrishak@gmail.com. We appreciate your support as our financial partner, and we are dedicated to serving you and contributing to your economic well-being and community development."
-                    )}
                 </p>
             </StyledAboutEkikrit>
             {/* <NavbarMarquee /> */}

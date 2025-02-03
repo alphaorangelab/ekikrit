@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Montserrat", system-ui;
+	width: 100% !important;
   }
   /* Set a base font size using rem units */
 

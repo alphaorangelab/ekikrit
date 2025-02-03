@@ -68,8 +68,8 @@ export const StyledProfileCard = styled.div`
     }
 
     .profile-title {
-    font-weight: 800;
-    font-size: 23px;
+        font-weight: 800;
+        font-size: 23px;
     }
 `;
 
@@ -177,71 +177,70 @@ export const PlusButton = styled.button`
 `;
 
 export const ChairmanMessageStyle = styled.div`
-  .container {
-    background-color: #f9f9f9;
-  }
+    .container {
+        background-color: #f9f9f9;
+    }
 
-  .message-ceo-section {
-    padding: 50px 0;
-    margin: 0 auto;
-    width: 70%;
-    box-sizing: border-box;
+    .message-ceo-section {
+        padding: 50px 0;
+        margin: 0 auto;
+        width: 70%;
+        box-sizing: border-box;
+
+        @media (max-width: 768px) {
+            width: 90%; /* Adjust width for smaller screens */
+        }
+    }
+
+    .row {
+        display: flex;
+        gap: 20px;
+
+        @media (max-width: 768px) {
+            flex-direction: column; /* Stack columns vertically */
+            align-items: center; /* Center items */
+        }
+    }
+
+    .message-ceo-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+
+        @media (max-width: 768px) {
+            text-align: center; /* Center align heading */
+            font-size: 20px; /* Adjust font size */
+        }
+    }
+
+    .message-ceo-section p {
+        font-size: 16px;
+        line-height: 1.8;
+
+        @media (max-width: 768px) {
+            font-size: 14px; /* Adjust font size for mobile */
+            text-align: center; /* Center align text */
+        }
+    }
+
+    .chairman-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+        @media (max-width: 768px) {
+            margin-top: 20px; /* Add spacing above image */
+        }
+    }
 
     @media (max-width: 768px) {
-      width: 90%; /* Adjust width for smaller screens */
+        .message-ceo-section .col-lg-6,
+        .message-ceo-section .col-md-6 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
     }
-  }
-
-  .row {
-    display: flex;
-    gap: 20px;
-
-    @media (max-width: 768px) {
-      flex-direction: column; /* Stack columns vertically */
-      align-items: center; /* Center items */
-    }
-  }
-
-  .message-ceo-section h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-
-    @media (max-width: 768px) {
-      text-align: center; /* Center align heading */
-      font-size: 20px; /* Adjust font size */
-    }
-  }
-
-  .message-ceo-section p {
-    font-size: 16px;
-    line-height: 1.8;
-
-    @media (max-width: 768px) {
-      font-size: 14px; /* Adjust font size for mobile */
-      text-align: center; /* Center align text */
-    }
-  }
-
-  .chairman-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-
-    @media (max-width: 768px) {
-      margin-top: 20px; /* Add spacing above image */
-    }
-  }
-
-  @media (max-width: 768px) {
-    .message-ceo-section .col-lg-6,
-    .message-ceo-section .col-md-6 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-  }
 `;
-
 
 export const StyledDescription = styled.div`
     display: flex;

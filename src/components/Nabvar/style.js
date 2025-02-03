@@ -128,7 +128,7 @@ export const StyledNavbarComponent = styled.div`
 
             /* Small devices (600px and up) */
             @media only screen and (max-width: 767px) {
-                width: 365px;
+                width: 360px;
             }
         }
 
